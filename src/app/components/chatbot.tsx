@@ -4,7 +4,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/app/components/ui/pop
 import { Button } from "@/app/components/ui/button"
 import { Input } from "@/app/components/ui/input"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { faArrowUp, faMessage } from "@fortawesome/free-solid-svg-icons";
 import { FormEvent, useEffect, useRef, useState } from "react";
 import axios from "axios"
 import { Avatar, AvatarFallback, AvatarImage } from "@/app/components/ui/avatar";
@@ -52,8 +52,10 @@ const Chatbot = () => {
   return (
     <div>
       <Popover>
-        <PopoverTrigger className="fixed w-[60px] h-[60px] bg-gray-600 right-10 bottom-8">Open</PopoverTrigger>
-        <PopoverContent key="popover-content" className="w-[500px] h-[500px] ml-4">
+        <PopoverTrigger className="fixed w-[60px] h-[60px] bg-white right-10 bottom-8 rounded-[13px] border border-black items-center">
+          <FontAwesomeIcon icon={faMessage} className="text-[30px] mt-1"/>
+        </PopoverTrigger>
+        <PopoverContent key="popover-content" className="w-[500px] h-[500px]" align={"end"}>
           <div className="flex flex-col justify-between h-full">
             <div className="w-full h-[400px] overflow-y-scroll px-2" ref={scrollRef}>
               <ul>

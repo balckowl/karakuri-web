@@ -1,7 +1,7 @@
 "use client"
 import axios from "axios";
 import { FormEvent, useState } from "react"
-import { useMediaQuery } from "react-responsive"
+import useMediaQuery from "@/hooks/useMediaQuery";
 const Prob1_2 = () => {
   const [ansProb1_1, setAnsProb1_1] = useState<string>("");
 
@@ -15,17 +15,17 @@ const Prob1_2 = () => {
     })
   }
 
-  const isLarge = useMediaQuery({ query: "(min-width: 1500px)" })
-  const isMidium = useMediaQuery({ query:"(min-width: 1200px)" })
-  const isSmall = useMediaQuery({ query: "(min-width: 900px)" })
-  const isExtraSmall = useMediaQuery({ query: "(min-width: 600px)" })
+  const isLarge = useMediaQuery("(min-width: 1500px)" )
+  const isMidium = useMediaQuery("(min-width: 1200px)")
+  const isSmall = useMediaQuery("(min-width: 900px)")
+  const isExtraSmall = useMediaQuery("(min-width: 600px)")
 
   return (
     <div className="bg-red-100 dark:bg-red-950 h-[80vh] relative">
       <div className="mx-auto container h-full flex items-center">
 
         {/* TODO Next.jsでReact-responsiveは使えないので、使わないで書く */}
-        {/* <div className="mx-auto w-[800px] h-[200px] flex items-center justify-center outline bg-white">
+        <div className="mx-auto w-[800px] h-[200px] flex items-center justify-center outline bg-white">
           <div className="w-[200px] h-[200px] border-l border-black border-2 flex items-center justify-center text-[100px]">
             {isLarge && "N"}
           </div>
@@ -38,7 +38,7 @@ const Prob1_2 = () => {
           <div className="w-[200px] h-[200px] border-l border-black border-2 flex items-center justify-center text-[100px]">
             {isExtraSmall && !isSmall && "T"}
           </div>
-        </div> */}
+        </div>
         
         {/* 回答フォーム */}
         <form

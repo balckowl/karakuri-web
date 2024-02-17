@@ -12,3 +12,6 @@ export const firebaseAdmin =
     admin.initializeApp({
         credential: admin.credential.cert(cert)
     })
+
+
+export const db = admin.firestore()

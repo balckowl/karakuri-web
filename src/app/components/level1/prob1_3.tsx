@@ -10,7 +10,7 @@ const Prob1_3 = () => {
     if (!ansProb1_1) {
       return
     }
-    const res = await axios.post("http://localhost:3000/api/level1/judge", {
+    const res = await axios.post(`http://localhost:3000/api/level1/judge`, {
       ans: ansProb1_1,
     })
   }
