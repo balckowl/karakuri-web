@@ -1,3 +1,5 @@
+"use client"
+
 import { authOptions } from "@/lib/next-auth/options"
 import { getServerSession } from "next-auth"
 import {
@@ -8,8 +10,11 @@ import {
 } from "@/components/ui/tooltip"
 import Link from "next/link"
 import Image from "next/image"
-
-const SelectLevel = async () => {
+import SelectHeader from "@/app/components/select/selectHeader"
+import Nameplate from "@/app/components/select/nameplate"
+import ProbFooter from "@/app/components/probFooter"
+import { useState } from "react"
+const SelectLevel = () => {
 
   // const getUserData = async () => {
 
@@ -24,56 +29,75 @@ const SelectLevel = async () => {
 
   // const userData = await getUserData()
 
+  const [position, setPosition] = useState<number>(0);
+
+  const positionMove = (operation: string) => {
+    if (operation === "L" && position !== 0) {
+      setPosition((prev) => prev - 1);
+    } else if (operation === "R" && position !== 2) {
+      setPosition((prev) => prev + 1);
+    }
+  }
+
   return (
-    <div className="container mx-auto">
-      {/* <p>レベル選択</p>
-      <div className="bg-green-300">
-        <div className="w-[400px] h-[100px] border border-black flex items-center flex-col justify-center">
-          <h2 className="text-[50px]">hello</h2>
-          <ul className="flex gap-3">
-            {userData.badges.map((badge:string)=>(
-              <li>{badge}</li>
-            ))}
-          </ul>
-        </div>
-        <div className="flex items-center justify-center gap-[100px] h-[500px]">
-          <div>
-            <ul className="flex gap-3">
-              {userData.clearLamp.level1.map((lamp: string, index: number) => (
-                <li className={`${lamp == "0" ? 'bg-red-500' : 'bg-white'} border border-black rounded-full w-[20px] h-[20px]`} key={index}></li>
-              ))}
-            </ul>
-            <Image src="/images/karakuri-web_main.webp" alt="" width={200} height={40} />
-            <Link href="/level1">
-              <p className="p-2">レベル1</p>
-            </Link>
-          </div>
-          <div>
-            <ul className="flex gap-3">
-              {userData.clearLamp.level1.map((lamp: string, index: number) => (
-                <li className={`${lamp == "0" ? 'bg-red-500' : 'bg-white'} border border-black rounded-full w-[20px] h-[20px]`} key={index}></li>
-              ))}
-            </ul>
-            <Image src="/images/karakuri-web_main.webp" alt="" width={200} height={40} />
-            <Link href="/level1">
-              <p className="p-2">レベル2</p>
-            </Link>
-          </div>
-          <div>
-            <ul className="flex gap-3">
-              {userData.clearLamp.level1.map((lamp: string, index: number) => (
-                <li className={`${lamp == "0" ? 'bg-red-500' : 'bg-white'} border border-black rounded-full w-[20px] h-[20px]`} key={index}></li>
-              ))}
-            </ul>
-            <Image src="/images/karakuri-web_main.webp" alt="" width={200} height={40} />
-            <Link href="/level1">
-              <p className="p-2">レベル3</p>
-            </Link>
-          </div>
-        </div>
-      </div> */}
+    <div className="relative h-[100vh]">
+      <SelectHeader />
       <div>
+
+        <div className="relative">
+          <div className="absolute top-6">
+            <Nameplate />
+          </div>
+          <div className="w-7/12 mx-auto h-[60vh] pt-[20vh] flex items-center justify-center">
+            <div className="w-full flex justify-between">
+              {/* Lv1 */}
+              <div className="relative w-[40px] h-[40px] bg-[#F7CB26] border-[#615734] border-4 rounded-[50%]">
+                { position === 0 &&
+                  <div>
+                    <div className="absolute top-[-100px]">aaa</div>
+                    <div className="absolute top-[60px] w-[60px] h-[60px] bg-gray-500 rounded-[50%] translate-x-[-15px]"></div>
+                  </div>
+                }
+              </div>
+
+              {/* Lv2 */}
+              <div className="relative w-[40px] h-[40px] bg-[#F7CB26] border-[#615734] border-4 rounded-[50%]">
+                { position === 1 &&
+                  <div>
+                    <div className="absolute top-[-100px]">aaa</div>
+                    <div className="absolute top-[60px] w-[60px] h-[60px] bg-gray-500 rounded-[50%] translate-x-[-15px]"></div>
+                  </div>
+                }
+              </div>
+
+              {/* Lv3 */}
+              <div className="relative w-[40px] h-[40px] bg-[#F7CB26] border-[#615734] border-4 rounded-[50%]">
+                { position === 2 &&
+                  <div>
+                    <div className="absolute top-[-100px]">aaa</div>
+                    <div className="absolute top-[60px] w-[60px] h-[60px] bg-gray-500 rounded-[50%] translate-x-[-15px]"></div>
+                  </div>
+                }
+              </div>
+
+            </div>
+            <div className="absolute w-7/12 h-[4px] border-black border-[2px] z-[-10]"></div>
+          </div>
+
+          <div className="flex w-10/12 justify-end">
+            <div
+              onClick={() => positionMove("L")}
+              className="w-[50px] h-[50px]">←</div>
+            <div
+              onClick={() => positionMove("R")}
+              className="w-[50px] h-[50px]">→</div>
+          </div>
+        </div>
         <Link href="/level1">level1</Link>
+        <div className="absolute bottom-0 left-[50vw] translate-x-[-50%]">
+        <ProbFooter />
+
+        </div>
       </div>
     </div>
   )

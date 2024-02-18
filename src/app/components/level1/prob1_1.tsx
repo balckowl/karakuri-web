@@ -72,7 +72,7 @@ const Prob1_1 = () => {
           <label htmlFor="ans-prob1_1" className="focus-within:text-purple-600">
             A.
           </label>
-          <input id="ans-prob1_1" type="text"
+          <input id="ans-prob1_1" type="text"      
             onChange={(e) => setAnsProb1_1(e.target.value)}
             value={ansProb1_1}
             className="outline-none focus:border-purple-700 w-[200px] px-2 dark:bg-slate-800"
