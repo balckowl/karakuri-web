@@ -1,19 +1,25 @@
 "use client"
 
-import { authOptions } from "@/lib/next-auth/options"
-import { getServerSession } from "next-auth"
 import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
 import Link from "next/link"
 import Image from "next/image"
 import SelectHeader from "@/app/components/select/selectHeader"
 import Nameplate from "@/app/components/select/nameplate"
-import ProbFooter from "@/app/components/probFooter"
+import Profile from "@/app/components/select/profile"
+
 import { useState } from "react"
+import { useSession } from "next-auth/react"
+import { Avatar, AvatarFallback, AvatarImage } from "@/app/components/ui/avatar"
+import { motion } from "framer-motion";
+import "./page.css"
+
 const SelectLevel = () => {
 
   // const getUserData = async () => {
@@ -29,7 +35,12 @@ const SelectLevel = () => {
 
   // const userData = await getUserData()
 
+  const { data: session } = useSession()
   const [position, setPosition] = useState<number>(0);
+  const [ direction, setDirection ] = useState<string>("");
+  const stageName = ["始まりの部屋","中間の盆地","終わりの平地"]
+  const keyframes = direction=="" ? [0] : direction === "L" ? ["20vw", 0] : ["-20vw", 0];
+  const [clearLampsList, setClearLampsList] = useState<number[][]>([[0,1,0,0,0],[0,0,0,0,0],[0,0,0,0,0]])
 
   const positionMove = (operation: string) => {
     if (operation === "L" && position !== 0) {
@@ -40,63 +51,91 @@ const SelectLevel = () => {
   }
 
   return (
-    <div className="relative h-[100vh]">
+    <div className="relative h-[100vh] bg-cover bg-center" style={{ backgroundImage: 'url(/images/select_back_black.jpg)' }}>
+
       <SelectHeader />
       <div>
-
         <div className="relative">
-          <div className="absolute top-6">
-            <Nameplate />
-          </div>
-          <div className="w-7/12 mx-auto h-[60vh] pt-[20vh] flex items-center justify-center">
-            <div className="w-full flex justify-between">
-              {/* Lv1 */}
-              <div className="relative w-[40px] h-[40px] bg-[#F7CB26] border-[#615734] border-4 rounded-[50%]">
-                { position === 0 &&
-                  <div>
-                    <div className="absolute top-[-100px]">aaa</div>
-                    <div className="absolute top-[60px] w-[60px] h-[60px] bg-gray-500 rounded-[50%] translate-x-[-15px]"></div>
-                  </div>
-                }
-              </div>
 
-              {/* Lv2 */}
-              <div className="relative w-[40px] h-[40px] bg-[#F7CB26] border-[#615734] border-4 rounded-[50%]">
-                { position === 1 &&
-                  <div>
-                    <div className="absolute top-[-100px]">aaa</div>
-                    <div className="absolute top-[60px] w-[60px] h-[60px] bg-gray-500 rounded-[50%] translate-x-[-15px]"></div>
-                  </div>
-                }
-              </div>
-
-              {/* Lv3 */}
-              <div className="relative w-[40px] h-[40px] bg-[#F7CB26] border-[#615734] border-4 rounded-[50%]">
-                { position === 2 &&
-                  <div>
-                    <div className="absolute top-[-100px]">aaa</div>
-                    <div className="absolute top-[60px] w-[60px] h-[60px] bg-gray-500 rounded-[50%] translate-x-[-15px]"></div>
-                  </div>
-                }
-              </div>
-
+        <Dialog>
+          <DialogTrigger>
+            <div className="absolute top-6 z-[0] cursor-pointer transition-all">
+            <Nameplate><p className="text-white text-xl pl-6">{session?.user.name}</p></Nameplate>
             </div>
-            <div className="absolute w-7/12 h-[4px] border-black border-[2px] z-[-10]"></div>
+          </DialogTrigger>
+          <DialogContent className="p-0">
+            <DialogHeader>
+              <DialogDescription className="text-black">
+
+                <Profile />
+
+              </DialogDescription>
+            </DialogHeader>
+          </DialogContent>
+        </Dialog>
+
+          <div className="w-7/12 mx-auto h-[60vh] pt-[40vh] flex items-center justify-between">
+
+            {[0, 1, 2].map((index:number) => (
+              <div className="relative w-[40px] h-[40px] bg-[#F7CB26] border-[#615734] border-4 rounded-[50%] z-[10]">
+                { position === index &&
+                  <div key={index}>
+                    <motion.div
+                      animate={{ y: [20, 0], opacity: [0,1] }}
+                      transition={{ type: "spring",  stiffness: 150, damping: 15, mass: 1 }}
+                    >
+                      <Link href={`/level${index+1}`} className="hover:opacity-80 transition-all">
+                        <div className="absolute top-[-296px] h-[270px] bg-[#ececdc] border-black border-[1px] w-max translate-x-[calc(-50%+22px)] p-6 rounded-lg">
+                          <div>
+                            <p className="mb-2">レベル{index+1} : {stageName[index]}</p>
+                            <div className="flex gap-2 mb-2">
+                              {clearLampsList[index].map((clearLamps:number, jndex:number) => (
+                                <div key={jndex}>
+                                  <div className={`w-[20px] h-[20px] bg-red border-black border-[1px] rounded-[50%] ${clearLampsList[index][jndex]==0 ?"bg-white": "bg-[#ee8f8f]"}`}></div>
+                                </div>
+                              ))}
+                            </div>
+                            <Image src={`/images/level${index}.jpg`} width={400} height={400} alt="level1" className="w-[200px] h-[160px] object-cover mb-2"></Image>
+                          </div>
+                        </div>
+                        <div className="relative down w-full mx-auto z-0"></div>
+                      </Link>
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ x: keyframes[0] }}
+                      animate={{ x: keyframes[1] }}
+                      transition={{ type: "spring",  stiffness: 150, damping: 15, mass: 1 }}
+                    >
+                      <div className="absolute top-[60px] w-[60px] h-[60px] rounded-[50%] translate-x-[-5px]">
+                        <Avatar>
+                          <AvatarImage src={session?.user.photoURL}/>
+                          <AvatarFallback>CN</AvatarFallback>
+                        </Avatar>
+                      </div>
+                    </motion.div>
+                  </div>
+                }
+              </div>
+            ))}
+
+            <div className="absolute w-7/12 h-[20px] bg-[#ececdc] border-black border-[4px]"></div>
           </div>
 
           <div className="flex w-10/12 justify-end">
             <div
-              onClick={() => positionMove("L")}
-              className="w-[50px] h-[50px]">←</div>
+              onClick={() => {positionMove("L"); setDirection("L")}}
+              className="w-[50px] h-[50px] bg-[#ececdc] cursor-pointer hover:bg-[#d6d6bc] transition-all border-black border-[1px]">←</div>
             <div
-              onClick={() => positionMove("R")}
-              className="w-[50px] h-[50px]">→</div>
+              onClick={() => {positionMove("R"); setDirection("R")}}
+              className="w-[50px] h-[50px] bg-[#ececdc] cursor-pointer hover:bg-[#d6d6bc] transition-all border-black border-[1px]">→</div>
           </div>
         </div>
-        <Link href="/level1">level1</Link>
+        
         <div className="absolute bottom-0 left-[50vw] translate-x-[-50%]">
-        <ProbFooter />
-
+          <footer className="text-center">
+            <small className="text-white">©2024 created by karakuringo</small>
+          </footer>
         </div>
       </div>
     </div>
