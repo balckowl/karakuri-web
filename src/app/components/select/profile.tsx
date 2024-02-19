@@ -2,7 +2,7 @@ import React from "react"
 import Nameplate from "./nameplate"
 import { useSession } from "next-auth/react"
 
-const Profile = () => {
+const Profile = ({ clearCount, badges }: { clearCount: any, badges: any }) => {
   const { data: session } = useSession()
   return (
     <div className=" h-[80vh]">
@@ -17,11 +17,11 @@ const Profile = () => {
         <div className="relative">
           <p className="relative z-[1] px-2 w-max h-max mx-auto bg-white text-lg">バッジ</p>
           <div className="absolute w-[100%] h-[1px] bg-black translate-y-[-16px] mb-10"></div>
-          
+
           <div className="w-[70%] mx-auto my-20 flex justify-between">
-            <div className="w-[60px] h-[60px] bg-gray-400 rounded-[50%]"></div>
-            <div className="w-[60px] h-[60px] bg-gray-400 rounded-[50%]"></div>
-            <div className="w-[60px] h-[60px] bg-gray-400 rounded-[50%]"></div>
+            {badges.map((badge: any, index: number) => (
+              <div className="w-[60px] h-[60px] bg-gray-400 rounded-[50%] flex items-center justify-center" key={index}>{badge}</div>
+            ))}
           </div>
         </div>
 
@@ -32,7 +32,7 @@ const Profile = () => {
 
           <div className="w-[70%] mx-auto my-20 flex justify-between text-lg">
             <p>クリア数</p>
-            <p>15</p>
+            <p>{clearCount}</p>
           </div>
         </div>
 
