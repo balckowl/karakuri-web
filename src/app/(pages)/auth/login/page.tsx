@@ -2,8 +2,9 @@
 
 import TopHeader from "@/app/components/base/topHeader"
 import { Button } from "@/app/components/ui/button"
-import { auth } from "@/lib/firebase/client"
+import { auth, db } from "@/lib/firebase/client"
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth"
+import { doc, getDoc, setDoc } from "firebase/firestore"
 import { signIn, useSession } from "next-auth/react"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
@@ -19,9 +20,19 @@ const Login = () => {
 
     const signInWithGoogle = () => {
 
-        signInWithPopup(auth, googleProvider).then((credential) => {
-            return credential.user.getIdToken(true)
-        }).then((idToken) => {
+        signInWithPopup(auth, googleProvider).then(async (credential) => {
+            const idToken = await credential.user.getIdToken(true)
+
+            const userDocRef = doc(db, "users", credential.user.uid);
+            const userDoc = await getDoc(userDocRef);
+
+            if (!userDoc.exists()) {
+                await setDoc(userDocRef, {
+                    clearLampList: { level1: Array(5).fill("0"), level2: Array(5).fill("0"), level3: Array(5).fill("0") },
+                    badges: ["1", "1", "1"]
+                });
+            }
+
             signIn("credentials", { idToken, callbackUrl: '/selectLevel' })
         }).catch((err) => {
             console.log(err)

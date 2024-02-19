@@ -18,19 +18,50 @@ const Level1 = () => {
   const problemNumber: number = 5;
 
   const { level } = useGameStore();
-  const [clears, setclears] = useState<boolean[]>(Array(problemNumber).fill(false));
+  const [clearLampList, setClearLampsList] = useState<any[]>([]);
+  const [isLoading, setIsLoading] = useState<any>(true)
+  const [userData, setUserData] = useState<any>({})
+
+  const getUserData = async () => {
+
+    setIsLoading(true)
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/user`)
+
+    const userData = await res.json()
+
+    console.log(userData)
+
+    setUserData(userData)
+    setClearLampsList(userData.clearLampList)
+    // setBadges(userData.badges)
+
+    // let zeroCount = 0
+
+    // Object.values(userData.clearLampList).forEach(array => {
+
+    //   zeroCount += array.filter(item => item === "1").length;
+    // });
+
+    // setClearCount(zeroCount)
+    setIsLoading(false)
+  }
+
+  useEffect(() => {
+    getUserData()
+  }, [])
   
   return (
     <div className="relative">
       <ProbHeader level={level}/>
       <div>
-        <Prob1_1/>
+        {!isLoading && <Prob1_1 clearLampList={clearLampList}/>}
         <Prob1_2/>
         <Prob1_3/>
         <Prob1_4/>
         <Prob1_5/>
       </div>
-      <ClearLamp clears={clears}/>
+      {!isLoading && <ClearLamp clearLampList={clearLampList}/>}
       <Belongings />
       <Chatbot />
       <ProbFooter />

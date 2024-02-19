@@ -2,20 +2,38 @@
 import axios from "axios";
 import { FormEvent, useState } from "react"
 import useMediaQuery from "@/hooks/useMediaQuery";
-const Prob1_2 = () => {
-  const [ansProb1_1, setAnsProb1_1] = useState<string>("");
 
-  const sendAns = async(e: FormEvent) =>{
+const Prob1_2 = () => {
+
+  const [ansProb1_2, setAnsProb1_2] = useState<string>("");
+
+  const sendAns = async (e: FormEvent) => {
+
     e.preventDefault();
-    if(!ansProb1_1){
+    if (!ansProb1_2) {
       return
     }
-    const res = await axios.post("http://localhost:3000/api/level1/judge", {
-      ans: ansProb1_1,
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/level1/judge/2`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ans: ansProb1_2 })
     })
+
+    const data = await res.json()
+
+    console.log(data)
+
+    if (data.judge == "correct") {
+      window.alert('正解')
+    } else {
+      window.alert('不正解')
+    }
   }
 
-  const isLarge = useMediaQuery("(min-width: 1500px)" )
+  const isLarge = useMediaQuery("(min-width: 1500px)")
   const isMidium = useMediaQuery("(min-width: 1200px)")
   const isSmall = useMediaQuery("(min-width: 900px)")
   const isExtraSmall = useMediaQuery("(min-width: 600px)")
@@ -39,7 +57,7 @@ const Prob1_2 = () => {
             {isExtraSmall && !isSmall && "T"}
           </div>
         </div>
-        
+
         {/* 回答フォーム */}
         <form
           onSubmit={sendAns}
@@ -48,11 +66,11 @@ const Prob1_2 = () => {
           <label htmlFor="ans-prob1_1" className="focus-within:text-purple-600">
             A.
           </label>
-            <input id="ans-prob1_1" type="text"
-              onChange={(e) => setAnsProb1_1(e.target.value)}
-              value={ ansProb1_1 }
-              className="bg-red-100 outline-none focus:border-purple-700 w-[200px] px-2 dark:bg-slate-800" 
-            />
+          <input id="ans-prob1_1" type="text"
+            onChange={(e) => setAnsProb1_2(e.target.value)}
+            value={ansProb1_2}
+            className="bg-red-100 outline-none focus:border-purple-700 w-[200px] px-2 dark:bg-slate-800"
+          />
         </form>
       </div>
     </div>
