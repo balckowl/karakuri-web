@@ -8,13 +8,14 @@ import TopFooter from "./components/base/topFooter"
 import { authOptions } from "@/lib/next-auth/options"
 import { getServerSession } from "next-auth"
 import { redirect } from "next/navigation"
+import { Suspense } from "react"
 
 const Home = async () => {
 
   //サーバーコンポーネントでのuser情報の取得方法
   const session = await getServerSession(authOptions)
 
-  if(session){
+  if (session) {
     redirect('/selectLevel')
   }
 
@@ -27,6 +28,7 @@ const Home = async () => {
         <div className="w-[30px] h-[4px] rotate-[-45deg] translate-x-[-10px] bg-black"></div>
       </div>
       <About />
+      {/* @ts-expect-error Server Component */}
       <News />
       <Tech />
       <TopFooter />
