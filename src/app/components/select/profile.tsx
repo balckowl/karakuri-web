@@ -8,7 +8,7 @@ const Profile = () => {
     <div className=" h-[80vh]">
       <div className="translate-x-[-2px] pt-6">
         <Nameplate>
-          <p className="text-white text-xl pl-6">{session?.user.name}</p>
+          <p className="text-black text-xl pl-6">{session?.user.name}</p>
         </Nameplate>
       </div>
       <div className="pt-[160px] px-10">
