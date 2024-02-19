@@ -1,0 +1,7 @@
+.down {
+  width: 0 ;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: calc(tan(45deg) * 20px) solid #ececdc;
+  transform: translate(-3px,-40px)
+}

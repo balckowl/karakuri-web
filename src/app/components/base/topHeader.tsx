@@ -11,14 +11,14 @@ const TopHeader = ({ pathname = "/" }: { pathname?: string }) => {
         <Link href="/">
           <div className="flex">
             <Image src={"/images/karakuri-web_logo.png"} alt="logo" width={100} height={100} className="object-cover" />
-            <h1 className="flex items-center text-[38px] font-bold lg:text-[40px]">karakuri-web</h1>
+            <h1 className="flex items-center text-[38px] font-bold ">karakuri-web</h1>
           </div>
         </Link>
         {
           pathname == "/" &&
           <div className="flex">
-            <Button className="bg-white border-black border-[1px] text-black hover:text-white p-6 lg:p-8">
-              <Link href="/auth/login" className="text-xl">始めよう</Link>
+            <Button className="bg-white border-black border-[1px] text-black hover:text-white p-6">
+              <Link href="/auth/login">始めよう</Link>
             </Button>
           </div>
         }
