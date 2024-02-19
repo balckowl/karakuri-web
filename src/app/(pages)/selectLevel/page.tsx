@@ -19,6 +19,7 @@ import { useSession } from "next-auth/react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/app/components/ui/avatar"
 import { motion } from "framer-motion";
 import "./page.css"
+import { useGameStore } from "@/app/stores/GameStore"
 
 const SelectLevel = () => {
 
@@ -27,6 +28,8 @@ const SelectLevel = () => {
   const [clearCount,setClearCount] = useState<number | null>()
   const [badges, setBadges] = useState<string[]>()
 
+  const { clearLampList, setClearLampList } = useGameStore();
+
   const getUserData = async () => {
 
     setIsLoading(true)
@@ -34,8 +37,6 @@ const SelectLevel = () => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/user`)
 
     const userData = await res.json()
-
-    console.log(userData)
 
     setUserData(userData)
     setBadges(userData.badges)
@@ -48,6 +49,8 @@ const SelectLevel = () => {
     });
 
     setClearCount(zeroCount)
+    setClearLampList(userData?.clearLampList)
+    console.log(clearLampList)
     setIsLoading(false)
   }
 
