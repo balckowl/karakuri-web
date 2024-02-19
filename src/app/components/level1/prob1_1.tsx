@@ -35,7 +35,6 @@ const Prob1_1 = ({ clearLampList }: { clearLampList: any }) => {
     } else {
       window.alert('不正解')
     }
-
   }
 
   return (
