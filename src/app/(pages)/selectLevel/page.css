@@ -5,3 +5,19 @@
   border-top: calc(tan(45deg) * 20px) solid #ececdc;
   transform: translate(-3px,-40px)
 }
+
+.left {
+  width: 0 ;
+  border-top: 28px solid transparent;
+  border-bottom: 28px solid transparent;
+  border-right: calc(tan(45deg) * 32px) solid #35301c;
+  transform: translateX(-3px)
+}
+
+.right {
+  width: 0 ;
+  border-top: 28px solid transparent;
+  border-bottom: 28px solid transparent;
+  border-left: calc(tan(45deg) * 32px) solid #35301c;
+  transform: translateX(3px)
+}

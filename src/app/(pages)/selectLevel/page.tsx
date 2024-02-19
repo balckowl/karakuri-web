@@ -60,7 +60,7 @@ const SelectLevel = () => {
         <Dialog>
           <DialogTrigger>
             <div className="absolute top-6 z-[0] cursor-pointer transition-all">
-            <Nameplate><p className="text-white text-xl pl-6">{session?.user.name}</p></Nameplate>
+            <Nameplate><p className="text-blck text-xl pl-6">{session?.user.name}</p></Nameplate>
             </div>
           </DialogTrigger>
           <DialogContent className="p-0">
@@ -85,13 +85,13 @@ const SelectLevel = () => {
                       transition={{ type: "spring",  stiffness: 150, damping: 15, mass: 1 }}
                     >
                       <Link href={`/level${index+1}`} className="hover:opacity-80 transition-all">
-                        <div className="absolute top-[-296px] h-[270px] bg-[#ececdc] border-black border-[1px] w-max translate-x-[calc(-50%+22px)] p-6 rounded-lg">
+                        <div className="absolute top-[-296px] h-[270px] bg-[#ececdc] border-[#615734] border-[1px] w-max translate-x-[calc(-50%+22px)] p-6 rounded-lg">
                           <div>
                             <p className="mb-2">レベル{index+1} : {stageName[index]}</p>
                             <div className="flex gap-2 mb-2">
                               {clearLampsList[index].map((clearLamps:number, jndex:number) => (
                                 <div key={jndex}>
-                                  <div className={`w-[20px] h-[20px] bg-red border-black border-[1px] rounded-[50%] ${clearLampsList[index][jndex]==0 ?"bg-white": "bg-[#ee8f8f]"}`}></div>
+                                  <div className={`w-[20px] h-[20px] bg-red border-[#615734] border-[1px] rounded-[50%] ${clearLampsList[index][jndex]==0 ?"bg-white": "bg-[#ee8f8f]"}`}></div>
                                 </div>
                               ))}
                             </div>
@@ -119,16 +119,24 @@ const SelectLevel = () => {
               </div>
             ))}
 
-            <div className="absolute w-7/12 h-[20px] bg-[#ececdc] border-black border-[4px]"></div>
+            <div className="absolute w-[calc(58%-20px)] translate-x-[10px] h-[20px] bg-[#ececdc] border-[#615734] border-[4px]"></div>
           </div>
 
-          <div className="flex w-10/12 justify-end">
+          <div className="flex w-10/12 justify-end mt-10 gap-4">
             <div
               onClick={() => {positionMove("L"); setDirection("L")}}
-              className="w-[50px] h-[50px] bg-[#ececdc] cursor-pointer hover:bg-[#d6d6bc] transition-all border-black border-[1px]">←</div>
+              className="w-[80px] h-[80px] bg-[#eceadc] cursor-pointer hover:bg-[#b8b897] transition-all border-black border-[1px]">
+                <div className="w-full h-full flex items-center justify-center">
+                  <div className="left"></div>
+                </div>
+              </div>
             <div
               onClick={() => {positionMove("R"); setDirection("R")}}
-              className="w-[50px] h-[50px] bg-[#ececdc] cursor-pointer hover:bg-[#d6d6bc] transition-all border-black border-[1px]">→</div>
+              className="w-[80px] h-[80px] bg-[#eceadc] cursor-pointer hover:bg-[#b8b897] transition-all border-black border-[1px]">
+                <div className="w-full h-full flex items-center justify-center">
+                  <div className="right"></div>
+                </div>
+              </div>
           </div>
         </div>
         
