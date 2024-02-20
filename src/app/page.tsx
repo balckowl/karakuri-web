@@ -27,10 +27,12 @@ const Home = async () => {
         <div className="w-[30px] h-[4px] rotate-[45deg] bg-black"></div>
         <div className="w-[30px] h-[4px] rotate-[-45deg] translate-x-[-10px] bg-black"></div>
       </div>
-      <About />
-      {/* @ts-expect-error Server Component */}
-      <News />
-      <Tech />
+      <div className="max-w-[1200px] mx-auto">
+        <About />
+        {/* @ts-expect-error Server Component */}
+        <News />
+        <Tech />
+      </div>
       <TopFooter />
     </div>
   )

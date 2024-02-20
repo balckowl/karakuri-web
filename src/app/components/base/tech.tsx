@@ -15,22 +15,24 @@ const Tech = () => {
           <ul>
             <li>
               <p className="mb-2 lg:text-[18px]">・フロントエンド</p>
-              <div className="flex gap-4 mb-8">
+              <div className="flex gap-4 mb-8 items-center">
                 <Image src={"/images/nextjs.png"} alt="nextjs" width={60} height={60} className="object-cover" />
-                <Image src={"/images/tailwindcss.png"} alt="tailwindcss" width={100} height={60} className="object-cover" />
-                <Image src={"/images/zustand.png"} alt="zustand" width={100} height={60} className="object-cover" />
+                <Image src={"/images/typescript.png"} alt="nextjs" width={60} height={60} className="object-cover" />
+                <Image src={"/images/tailwindcss.png"} alt="tailwindcss" width={100} height={100} className="w-[83px] h-[50px] object-cover" />
+                <Image src={"/images/zustand.png"} alt="zustand" width={100} height={60} className="w-[70px] h-[70px] object-cover" />
                 <Image src={"/images/framer.png"} alt="framer" width={60} height={60} className="object-cover" />
                 <Image src={"/images/shadcn.png"} alt="shadcn" width={60} height={60} className="object-cover" />
               </div>
             </li>
             <li>
               <p className="mb-2 lg:text-[18px]">・バックエンド</p>
-              <div className="flex gap-4 mb-8">
+              <div className="flex gap-4 mb-8 items-center">
                 <Image src={"/images/nextjs.png"} alt="nextjs" width={60} height={60} className="object-cover" />
-                <Image src={"/images/tailwindcss.png"} alt="tailwindcss" width={100} height={60} className="object-cover" />
-                <Image src={"/images/gemini.png"} alt="gemini" width={60} height={60} className="object-cover" />
+                <Image src={"/images/typescript.png"} alt="nextjs" width={60} height={60} className="object-cover" />
+                <Image src={"/images/google-gemini.svg"} alt="gemini" width={150} height={150} className="object-cover" />
                 <Image src={"/images/langchain.png"} alt="langchain" width={80} height={60} className="object-cover" />
                 <Image src={"/images/nextauth.png"} alt="nextauth" width={54} height={60} className="object-cover" />
+                <Image src={"/images/firebase.webp"} alt="firebase" width={54} height={60} className="w-[62px] object-cover" />
               </div>
             </li>
             <li>
@@ -44,13 +46,10 @@ const Tech = () => {
               <div className="flex gap-4 mb-8">
                 <Image src={"/images/figma.png"} alt="next" width={48} height={60} className="object-cover" />
                 <Image src={"/images/git.png"} alt="next" width={64} height={60} className="object-cover" />
-                <Image src={"/images/github.png"} alt="next" width={64} height={60} className="object-cover" />
+                <Image src={"/images/github.png"} alt="next" width={67} height={60} className="object-cover" />
               </div>
             </li>
           </ul>
-        </div>
-        <div className="hidden xl:block absolute right-0 bottom-0">
-          <Image src={"/images/techstack.png"} alt="techstack" width={700} height={700} className="object-cover" />
         </div>
       </div>
 

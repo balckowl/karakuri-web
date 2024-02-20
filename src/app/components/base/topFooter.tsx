@@ -3,8 +3,8 @@ import Image from "next/image";
 
 const TopFooter = () => {
   return (
-    <div className="container border-black border-t-[1px] pt-10">
-      <div className="flex mb-12">
+    <div className="container">
+      <div className="flex mb-12 border-black border-t-[1px] pt-10">
         <div className="w-[30%]">
           <Image src={"/images/karakuri-web_logo.png"} alt="gyudon" width={230} height={230} className="mx-auto" />
           <p className="text-center">karakuri web</p>
