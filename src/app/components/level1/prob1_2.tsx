@@ -39,21 +39,21 @@ const Prob1_2 = () => {
   const isExtraSmall = useMediaQuery("(min-width: 600px)")
 
   return (
-    <div className="bg-red-100 dark:bg-red-950 h-[80vh] relative">
+    <div className="bg-[#FFF7F1] dark:bg-red-950 h-[86vh] relative">
       <div className="mx-auto container h-full flex items-center">
 
         {/* TODO Next.jsでReact-responsiveは使えないので、使わないで書く */}
-        <div className="mx-auto w-[800px] h-[200px] flex items-center justify-center outline bg-white">
-          <div className="w-[200px] h-[200px] border-l border-black border-2 flex items-center justify-center text-[100px]">
+        <div className="mx-auto w-[90%] max-w-[800px] h-[200px] flex items-center justify-center outline bg-white">
+          <div className="w-[40%] h-full border-l border-black border-2 flex items-center justify-center text-[60px]">
             {isLarge && "N"}
           </div>
-          <div className="w-[200px] h-[200px] border-l border-black border-2 flex items-center justify-center text-[100px]">
+          <div className="w-[30%] h-full border-l border-black border-2 flex items-center justify-center text-[60px]">
             {isMidium && !isLarge && "E"}
           </div>
-          <div className="w-[200px] h-[200px] border-l border-black border-2 flex items-center justify-center text-[100px]">
+          <div className="w-[20%] h-full border-l border-black border-2 flex items-center justify-center text-[60px]">
             {isSmall && !isMidium && "X"}
           </div>
-          <div className="w-[200px] h-[200px] border-l border-black border-2 flex items-center justify-center text-[100px]">
+          <div className="w-[10%] h-full border-l border-black border-2 flex items-center justify-center text-[60px]">
             {isExtraSmall && !isSmall && "T"}
           </div>
         </div>
@@ -69,7 +69,7 @@ const Prob1_2 = () => {
           <input id="ans-prob1_1" type="text"
             onChange={(e) => setAnsProb1_2(e.target.value)}
             value={ansProb1_2}
-            className="bg-red-100 outline-none focus:border-purple-700 w-[200px] px-2 dark:bg-slate-800"
+            className="bg-[#FFF7F1] outline-none focus:border-purple-700 w-[200px] px-2 dark:bg-slate-800 focus:bg-transparent"
           />
         </form>
       </div>

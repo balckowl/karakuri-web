@@ -1,0 +1,27 @@
+.up {
+  width: 0 ;
+  border-left: 16px solid transparent;
+  border-right: 16px solid transparent;
+  border-bottom: calc(tan(45deg) * 16px) solid #35301c;
+}
+
+.down {
+  width: 0 ;
+  border-left: 16px solid transparent;
+  border-right: 16px solid transparent;
+  border-top: calc(tan(45deg) * 16px) solid #35301c;
+}
+
+.left {
+  width: 0 ;
+  border-top: 16px solid transparent;
+  border-bottom: 16px solid transparent;
+  border-right: calc(tan(45deg) * 16px) solid #35301c;
+}
+
+.right {
+  width: 0 ;
+  border-top: 16px solid transparent;
+  border-bottom: 16px solid transparent;
+  border-left: calc(tan(45deg) * 16px) solid #35301c;
+}

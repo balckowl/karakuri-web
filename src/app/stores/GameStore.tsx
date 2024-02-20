@@ -39,6 +39,5 @@ export const useGameStore = create<TGameStoreState>()((set) => ({
             },
         };
     }),
-
 }))
 
