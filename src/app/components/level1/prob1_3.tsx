@@ -1,6 +1,6 @@
 "use client"
 import axios from "axios";
-import { FormEvent, useState } from "react"
+import { FormEvent, useEffect, useState } from "react"
 
 const Prob1_3 = () => {
   const [ansProb1_1, setAnsProb1_1] = useState<string>("");
@@ -15,12 +15,18 @@ const Prob1_3 = () => {
     })
   }
 
+  useEffect(()=>{
+    console.log("tour1st")
+  },[])
+
   return (
-    <div className="bg-white dark:bg-gray-800 h-[80vh] flex items-center relative">
+    <div className="h-[86vh] flex items-center relative">
       <div className="h-max mx-auto container">
         <div className="w-max mx-auto">
-          <p className="w-max mx-auto p-[40px] rounded-md border-[2px] border-black mb-[60px]"><span className="text-[120px] text-white">HTML</span><span className="text-[60px] text-white">を</span></p>
-          <p className="text-[60px] dark:text-gray-800">くらくなると、<span className="text-red-600">み</span>え<span className="text-red-600">て</span>くるもの</p>
+          <div className="w-[300px] h-[120px] mx-auto rounded-md border-[2px] border-black mb-[60px] text-[40px] text-white flex justify-center items-center">
+            <p className="hidden dark:block">console</p>
+          </div>
+          <p className="text-[40px] dark:text-gray-800">くらくなると、<span className="text-red-600">み</span>え<span className="text-red-600">て</span>くるもの</p>
         </div>
       </div>
       {/* 回答フォーム */}
@@ -34,7 +40,7 @@ const Prob1_3 = () => {
         <input id="ans-prob1_1" type="text"
           onChange={(e) => setAnsProb1_1(e.target.value)}
           value={ansProb1_1}
-          className="outline-none focus:border-purple-700 w-[200px] px-2 dark:bg-slate-800"
+          className="outline-none focus:border-purple-700 w-[200px] px-2 dark:bg-slate-800 focus:bg-transparent"
         />
       </form>
     </div>

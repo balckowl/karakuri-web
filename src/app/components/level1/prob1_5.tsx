@@ -1,5 +1,6 @@
 "use client"
 import { useEffect, useState } from "react"
+import "./level1.css"
 
 const Prob1_5 = () => {
   function deepCopy2DArray(arr: any) {
@@ -71,32 +72,67 @@ const Prob1_5 = () => {
       [".",".",".",".","."],
       [".",".",".",".","#"],
       [".","#",".","#","#"],
-      [".",".",".",".","G"],
+      [".",".",".","x","G"],
     ]
   );
 
   return (
-    <div className="bg-white dark:bg-gray-800 h-[80vh] flex items-center">
-      <div className="mx-auto outline">
-        {grid.map((mass, index) => (
-          <div key={index} className="flex">
-            {mass.map((item, index) => (
-              <div
-                key={index}
-                className={`w-[100px] h-[100px] border-black border-[1px] ${item=="#" && "bg-black"}`}
-              >
-                <p className="h-full flex items-center justify-center text-4xl font-bold">
-                  {"URDLG".includes(item) && item}
-                </p>
-              </div>
-            ))}
-          </div>
-        ))}
+    <div className="relative bg-white dark:bg-gray-800 h-[86vh] flex items-center container">
+      <div className="h-[60vh] flex items-center flex-col mx-auto">
+        <div className="mx-auto outline mb-12">
+          {grid.map((mass, index) => (
+            <div key={index} className="flex">
+              {mass.map((item, index) => (
+                <div
+                  key={index}
+                  className={`w-[100px] h-[100px] border-black border-[1px] ${item=="#" && "bg-black"}`}
+                >
+                  <p className="h-full flex items-center justify-center text-4xl font-bold">
+                    {"URDLG".includes(item) && item}
+                  </p>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+        <div>
+          <p className="text-xl">0100 0000 0100</p>
+        </div>
       </div>
-      <div onClick={()=>handleMove("U")} className="p-2">↑</div>
-      <div onClick={()=>handleMove("R")} className="p-2">→</div>
-      <div onClick={()=>handleMove("D")} className="p-2">↓</div>
-      <div onClick={()=>handleMove("L")} className="p-2">←</div>
+      <div className="absolute grid grid-cols-3 grid-rows-3 bottom-20 right-10">
+          <div
+            onClick={()=>handleMove("U")} 
+            className="w-[50px] h-[50px] bg-[#eceadc] cursor-pointer hover:bg-[#b8b897] transition-all border-black border-[1px] col-start-2 col-span-1 flex items-center justify-center border-b-0">
+            <div className="w-full h-full flex items-center justify-center">
+              <div className="up"></div>
+            </div>
+          </div>
+          <div
+            onClick={()=>handleMove("R")} 
+            className="w-[50px] h-[50px] bg-[#eceadc] cursor-pointer hover:bg-[#b8b897] transition-all border-black border-[1px] col-start-3 col-span-1 row-start-2 row-span-1 flex items-center justify-center border-l-0">
+            <div className="w-full h-full flex items-center justify-center">
+              <div className="right"></div>
+            </div>
+          </div>
+          <div
+            onClick={()=>handleMove("D")} 
+            className="w-[50px] h-[50px] bg-[#eceadc] transition-all hover:bg-[#b8b897] border-black border-[1px] col-start-2 col-span-1 row-start-3 row-span-1  flex items-center justify-center border-t-0">
+            <div className="w-full h-full flex items-center justify-center">
+              <div className="down"></div>
+            </div>
+          </div>
+          <div
+            onClick={()=>handleMove("L")} 
+            className="w-[50px] h-[50px] bg-[#eceadc] cursor-pointer hover:bg-[#b8b897] transition-all border-black border-[1px] col-start-1 row-start-2 flex items-center justify-center border-r-0">
+            <div className="w-full h-full flex items-center justify-center">
+              <div className="left"></div>
+            </div>
+          </div>
+          <div
+            className="w-[50px] h-[50px] bg-[#eceadc]  col-start-2 col-span-1 row-start-2 row-span-1  flex items-center justify-center">
+          </div>
+      </div>
+
     </div>
   )
 }

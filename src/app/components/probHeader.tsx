@@ -12,7 +12,7 @@ const ProbHeader = ({ level }: { level: number }) => {
   const { data: session } = useSession()
 
   const bgColor = classnames({
-    "bg-red-500": level === 1,
+    "bg-[#E78895]": level === 1,
     "bg-green-500": level === 2,
     "bg-purple-500": level === 3,
   });

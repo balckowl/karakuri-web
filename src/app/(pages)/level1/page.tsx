@@ -30,8 +30,6 @@ const Level1 = () => {
 
     const userData = await res.json()
 
-    console.log(userData)
-
     setUserData(userData)
     setClearLampsList(userData.clearLampList)
     // setBadges(userData.badges)

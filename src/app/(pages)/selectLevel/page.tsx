@@ -50,7 +50,6 @@ const SelectLevel = () => {
 
     setClearCount(zeroCount)
     setClearLampList(userData?.clearLampList)
-    console.log(clearLampList)
     setIsLoading(false)
   }
 

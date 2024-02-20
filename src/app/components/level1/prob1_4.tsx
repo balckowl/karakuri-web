@@ -19,21 +19,21 @@ const Prob1_4 = () => {
   } 
 
   return (
-    <div className="bg-red-100 dark:bg-red-950 h-[80vh]">
+    <div className="bg-[#FFF7F1] dark:bg-red-950 h-[86vh]">
       <div className="mx-auto container h-full flex items-center">
-        <div className="w-[80vw] mx-auto h-max p-[60px] border-black border-2 rounded-lg bg-white">
+        <div className="w-[80vw] mx-auto h-max p-[60px] border-black border-2 rounded-lg">
           {/* ディスプレイ */}
           <div className="flex w-4/12 mx-auto justify-between mb-20">
             <div>
               <p className="text-center text-xl">合計値</p>
-              <div className="w-[100px] h-[140px] border-black border-2 flex items-center justify-around">
-                <p className="text-4xl font-bold text-blue-500">{nowNumber}</p>
+              <div className="w-[70px] h-[100px] border-black border-2 flex items-center justify-around">
+                <p className="text-3xl font-bold text-blue-500">{nowNumber}</p>
               </div>
             </div>
             <div>
               <p className="text-center text-xl">目標値</p>
-              <div className="w-[100px] h-[140px] border-black border-2 flex items-center justify-around">
-                <p className="text-4xl font-bold text-red-500">20</p>
+              <div className="w-[70px] h-[100px] border-black border-2 flex items-center justify-around">
+                <p className="text-3xl font-bold text-red-500">20</p>
               </div>
             </div>
           </div>
@@ -42,9 +42,9 @@ const Prob1_4 = () => {
             {cardNumberList.map((cardNumber, index) =>(
               <div key={index}
                 onClick={() => handleClickCard(index)}
-                className={`w-[100px] h-[140px] border-black border-2 flex items-center justify-around cursor-pointer ${isSelectCardList[index] && "bg-blue-300 translate-y-[-10px]"}`}
+                className={`w-[70px] h-[100px] border-black border-2 flex items-center justify-around cursor-pointer ${isSelectCardList[index] && "bg-blue-300 translate-y-[-10px]"}`}
               >
-                <p className="text-4xl font-bold">{ cardNumber }</p>
+                <p className="text-3xl font-bold">{ cardNumber }</p>
               </div>
             ))
             }
