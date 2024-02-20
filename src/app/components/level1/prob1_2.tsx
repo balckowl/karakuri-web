@@ -2,10 +2,12 @@
 import axios from "axios";
 import { FormEvent, useState } from "react"
 import useMediaQuery from "@/hooks/useMediaQuery";
+import { useGameStore } from "@/app/stores/GameStore";
 
 const Prob1_2 = () => {
 
   const [ansProb1_2, setAnsProb1_2] = useState<string>("");
+  const { setClearLampAtIndex } = useGameStore()
 
   const sendAns = async (e: FormEvent) => {
 
@@ -28,6 +30,7 @@ const Prob1_2 = () => {
 
     if (data.judge == "correct") {
       window.alert('正解')
+      setClearLampAtIndex('level1', 1, "1")
     } else {
       window.alert('不正解')
     }

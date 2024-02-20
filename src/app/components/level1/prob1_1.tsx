@@ -7,7 +7,7 @@ import { FormEvent, useState } from "react"
 const Prob1_1 = ({ clearLampList }: { clearLampList: any }) => {
   const [isGetScrollBar, setIsGetScrollBar] = useState<boolean>(false);
   const [isFitScrollBar, setIsFitScrollBar] = useState<boolean>(false);
-  const { getBelonging, havingItem } = useGameStore();
+  const { getBelonging, havingItem, setClearLampAtIndex } = useGameStore();
   const [ansProb1_1, setAnsProb1_1] = useState<string>("");
 
   const sendAns = async (e: FormEvent) => {
@@ -32,6 +32,7 @@ const Prob1_1 = ({ clearLampList }: { clearLampList: any }) => {
 
     if (data.judge == "correct") {
       window.alert('正解')
+      setClearLampAtIndex('level1', 0, "1")
     } else {
       window.alert('不正解')
     }

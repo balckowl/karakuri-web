@@ -18,9 +18,10 @@ const Level1 = () => {
   const problemNumber: number = 5;
 
   const { level } = useGameStore();
-  const [clearLampList, setClearLampsList] = useState<any[]>([]);
+  // const [clearLampList, setClearLampsList] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState<any>(true)
   const [userData, setUserData] = useState<any>({})
+  const { clearLampList, setClearLampList } = useGameStore();
 
   const getUserData = async () => {
 
@@ -31,7 +32,7 @@ const Level1 = () => {
     const userData = await res.json()
 
     setUserData(userData)
-    setClearLampsList(userData.clearLampList)
+    setClearLampList(userData.clearLampList)
     // setBadges(userData.badges)
 
     // let zeroCount = 0

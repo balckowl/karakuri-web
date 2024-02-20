@@ -24,8 +24,8 @@ import { useGameStore } from "@/app/stores/GameStore"
 const SelectLevel = () => {
 
   const [userData, setUserData] = useState<any>({})
-  const [isLoading,setIsLoading] = useState<boolean>(true)
-  const [clearCount,setClearCount] = useState<number | null>()
+  const [isLoading, setIsLoading] = useState<boolean>(true)
+  const [clearCount, setClearCount] = useState<number | null>()
   const [badges, setBadges] = useState<string[]>()
 
   const { clearLampList, setClearLampList } = useGameStore();
@@ -54,7 +54,7 @@ const SelectLevel = () => {
   }
 
   useEffect(() => {
-    getUserData()
+      getUserData()
   }, [])
 
   const { data: session } = useSession()
@@ -89,7 +89,7 @@ const SelectLevel = () => {
               <DialogHeader>
                 <div className="text-black">
 
-                  <Profile clearCount={clearCount} badges={badges}/>
+                  <Profile clearCount={clearCount} badges={badges} />
 
                 </div>
               </DialogHeader>
@@ -116,9 +116,9 @@ const SelectLevel = () => {
                                   <div className={`w-[20px] h-[20px] bg-red border-[#615734] border-[1px] rounded-[50%] ${clearLampsList[index][jndex] == 0 ? "bg-white" : "bg-[#ee8f8f]"}`}></div>
                                 </div>
                               ))} */}
-                              {!isLoading && userData?.clearLampList[`level${index + 1}`].map((clearLamps: string, jndex: number) => (
+                              {!isLoading && clearLampList[`level${index + 1}`].map((clearLamps: string, jndex: number) => (
                                 <div key={jndex}>
-                                  <div className={`w-[20px] h-[20px] bg-red border-[#615734] border-[1px] rounded-[50%] ${!isLoading && userData?.clearLampList[`level${index + 1}`][jndex] === "1" && "bg-red-500"}`}></div>
+                                  <div className={`w-[20px] h-[20px] bg-red border-[#615734] border-[1px] rounded-[50%] ${!isLoading && clearLampList[`level${index + 1}`][jndex] === "1" && "bg-red-500"}`}></div>
                                 </div>
                               ))}
                             </div>
