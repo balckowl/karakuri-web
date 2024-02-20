@@ -21,7 +21,7 @@ export const useGameStore = create<TGameStoreState>()((set) => ({
     setHavingItem: (item: string) => set((state) => ({
         havingItem: state.havingItem = item
     })),
-    clearLampList: {},
+    clearLampList: null,
     setClearLampList: (clearLampList: any) => set((state) => ({
         clearLampList: state.clearLampList = clearLampList
     })),

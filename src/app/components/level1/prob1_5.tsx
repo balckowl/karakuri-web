@@ -118,7 +118,7 @@ const Prob1_5 = () => {
             onClick={()=>handleMove("D")} 
             className="w-[50px] h-[50px] bg-[#eceadc] transition-all hover:bg-[#b8b897] border-black border-[1px] col-start-2 col-span-1 row-start-3 row-span-1  flex items-center justify-center border-t-0">
             <div className="w-full h-full flex items-center justify-center">
-              <div className="down"></div>
+              <div className="down-level1"></div>
             </div>
           </div>
           <div
