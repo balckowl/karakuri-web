@@ -7,7 +7,7 @@ const Tech = () => {
       <div className="mb-10 lg:mb-16">
         <p className="text-[#AE8818] lg:text-[18px]">・技術スタック</p>
         <h2 className="text-[50px] leading-[50px] mb-2 font-bold">TECH</h2>
-        <p className="ml-1 lg:text-[18px]">karakuri-webで使用された技術スタックです</p>
+        <p className="ml-1 lg:text-[18px]">karakuri-webで使用された技術スタックです。</p>
       </div>
 
       <div className="flex justify-between relative">
