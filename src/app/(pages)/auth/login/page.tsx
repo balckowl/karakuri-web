@@ -28,7 +28,8 @@ const Login = () => {
             if (!userDoc.exists()) {
                 await setDoc(userDocRef, {
                     clearLampList: { level1: Array(5).fill("0"), level2: Array(5).fill("0"), level3: Array(5).fill("0") },
-                    badges: ["1", "1", "1"]
+                    badges: ["1", "1", "1"],
+                    currentBadge: -1,
                 });
             }
 
