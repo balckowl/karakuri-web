@@ -1,18 +1,21 @@
 "use client"
+import { useGameStore } from "@/app/stores/GameStore";
+import Image from "next/image";
 import { useState } from "react";
 
-const Prob1_4 = () => {
+const Prob1_4 = ({ clearLampList }: { clearLampList: any }) => {
 
   const cardNumberList = [1, 8, 6, 3, 4];;
   const [isSelectCardList, setIsSelectCardList] = useState<boolean[]>([false,false,false,false,false]);
-  const [nowNumber, setNowNumber] = useState<number>(0);
-
+  const { nowNumber, addNowNumber } = useGameStore();
+  
   const handleClickCard = (index:number) => {
     const newIsSelectCardList = [...isSelectCardList];
+    let tour1st;
     if(isSelectCardList[index]){
-      setNowNumber((prev) => prev-cardNumberList[index])
+      addNowNumber(-cardNumberList[index])
     } else {
-      setNowNumber((prev) => prev+cardNumberList[index])
+      addNowNumber(cardNumberList[index])
     }
     newIsSelectCardList[index] = !isSelectCardList[index];
     setIsSelectCardList(newIsSelectCardList);
@@ -53,6 +56,13 @@ const Prob1_4 = () => {
           <p className="text-xl text-center">(選択できるのは黒い数字)</p>
         </div>
       </div>
+      
+        {/* クリアマーク */}
+        {clearLampList['level1'][3] === "1" &&
+          <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] rotate-[-10deg]">
+            <Image src="/images/clear_stamp.png" width={400} height={70} alt=""/>
+          </div>
+        }
     </div>
 
   )
