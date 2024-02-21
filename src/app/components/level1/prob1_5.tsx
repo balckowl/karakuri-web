@@ -1,8 +1,14 @@
 "use client"
 import { useEffect, useState } from "react"
 import "./level1.css"
+import Image from "next/image";
+import { useGameStore } from "@/app/stores/GameStore";
 
-const Prob1_5 = () => {
+const Prob1_5 = ({ clearLampList }: { clearLampList: any }) => {
+
+  const [isGetGreenPoiner, setIsGetGreenPoiner] = useState<boolean>(false);
+  const { getBelonging, havingItem, setClearLampAtIndex } = useGameStore();
+
   function deepCopy2DArray(arr: any) {
     return arr.map(function(subArray: any) {
         return Array.isArray(subArray) ? deepCopy2DArray(subArray) : subArray;
@@ -99,6 +105,7 @@ const Prob1_5 = () => {
           <p className="text-xl">0100 0000 0100</p>
         </div>
       </div>
+      {/* 操作盤 */}
       <div className="absolute grid grid-cols-3 grid-rows-3 bottom-20 right-10">
           <div
             onClick={()=>handleMove("U")} 
@@ -132,7 +139,19 @@ const Prob1_5 = () => {
             className="w-[50px] h-[50px] bg-[#eceadc]  col-start-2 col-span-1 row-start-2 row-span-1  flex items-center justify-center">
           </div>
       </div>
+      
+      {/* Green Pointer(Item) */}
+      <div
+        onClick={() => getBelonging("greenPointer") }
+        className="cursor-pointer"
+      >GreenPointer</div>
 
+      {/* クリアマーク */}
+      {clearLampList['level1'][4] === "1" &&
+        <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] rotate-[-10deg]">
+          <Image src="/images/clear_stamp.png" width={400} height={70} alt=""/>
+        </div>
+      }
     </div>
   )
 }

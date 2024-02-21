@@ -13,6 +13,7 @@ import Prob1_3 from "@/app/components/level1/prob1_3"
 import Prob1_4 from "@/app/components/level1/prob1_4"
 import Prob1_5 from "@/app/components/level1/prob1_5"
 import { useGameStore } from "@/app/stores/GameStore"
+import MouseHighlight from "@/app/components/level1/mouseHighlight"
 
 const Level1 = () => {
   const problemNumber: number = 5;
@@ -22,6 +23,7 @@ const Level1 = () => {
   const [isLoading, setIsLoading] = useState<any>(true)
   const [userData, setUserData] = useState<any>({})
   const { clearLampList, setClearLampList } = useGameStore();
+  const { havingItem } = useGameStore();
 
   const getUserData = async () => {
 
@@ -52,13 +54,16 @@ const Level1 = () => {
   
   return (
     <div className="relative">
+      { havingItem == "greenPointer" &&
+        <MouseHighlight />
+      }
       <ProbHeader level={level}/>
       <div>
         {!isLoading && <Prob1_1 clearLampList={clearLampList}/>}
-        <Prob1_2/>
-        <Prob1_3/>
-        <Prob1_4/>
-        <Prob1_5/>
+        {!isLoading && <Prob1_2 clearLampList={clearLampList}/>}
+        {!isLoading && <Prob1_3 clearLampList={clearLampList}/>}
+        {!isLoading && <Prob1_4 clearLampList={clearLampList}/>}
+        {!isLoading && <Prob1_5 clearLampList={clearLampList}/>}
       </div>
       {!isLoading && <ClearLamp clearLampList={clearLampList}/>}
       <Belongings />

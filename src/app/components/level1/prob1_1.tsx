@@ -62,7 +62,7 @@ const Prob1_1 = ({ clearLampList }: { clearLampList: any }) => {
           </div>
         </div>
         <div className="w-max text-center justify-end">
-          {/* item */}
+          {/* Scrool Bar(item) */}
           {isGetScrollBar == false &&
             <div onClick={() => { setIsGetScrollBar(true); getBelonging("scrollBar") }}>
               <Image src={"/images/level1/scroll.png"} width={200} height={100} alt="scroll" className="object-fit h-[30px]"></Image>
@@ -90,17 +90,17 @@ const Prob1_1 = ({ clearLampList }: { clearLampList: any }) => {
           <div
             className="absolute right-20 bottom-20 text-4xl border-[#ff5160] border-b-2 focus-within:border-purple-600 focus-within:border-b-[3px] flex"
           >
-            <div className="text-[#ff5160]">A.</div>
+            <div className="text-[#bd5059]">A.</div>
             <div className="text-[#ff5160] w-[200px]">HELLO</div>
           </div>
         )}
 
         {/* クリアマーク */}
-        {/* {clearLampList['level1'][0] === "1" &&
+        {clearLampList['level1'][0] === "1" &&
           <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] rotate-[-10deg]">
             <Image src="/images/clear_stamp.png" width={400} height={70} alt=""/>
           </div>
-        } */}
+        }
 
       </div>
     </div>

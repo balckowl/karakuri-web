@@ -52,7 +52,7 @@ const POST = async (req: NextRequest, { params }: { params: { id: string } }) =>
     }
 
     if (id === "3") {
-        if (ans === "TOR1ST") {
+        if (ans === "TOUR1ST") {
             updatedLevel1[2] = "1"
 
             await db.collection("users").doc(uid).set({

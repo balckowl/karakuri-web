@@ -9,6 +9,8 @@ interface TGameStoreState {
     clearLampList: any;
     setClearLampList: (clearLampList: any) => void;
     setClearLampAtIndex: (level:any , index:any, value:any) => void;
+    nowNumber: number;
+    addNowNumber: (number: number) => void;
 }
 
 export const useGameStore = create<TGameStoreState>()((set) => ({
@@ -39,5 +41,9 @@ export const useGameStore = create<TGameStoreState>()((set) => ({
             },
         };
     }),
+    nowNumber: 0,
+    addNowNumber: (val: number) => set((state) => ({
+        nowNumber: state.nowNumber + val
+    })),
 }))
 

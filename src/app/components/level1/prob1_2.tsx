@@ -3,8 +3,9 @@ import axios from "axios";
 import { FormEvent, useState } from "react"
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { useGameStore } from "@/app/stores/GameStore";
+import Image from "next/image";
 
-const Prob1_2 = () => {
+const Prob1_2 = ({ clearLampList }: { clearLampList: any }) => {
 
   const [ansProb1_2, setAnsProb1_2] = useState<string>("");
   const { setClearLampAtIndex } = useGameStore()
@@ -62,19 +63,37 @@ const Prob1_2 = () => {
         </div>
 
         {/* 回答フォーム */}
+        {clearLampList["level1"][0] === "0" ? (
         <form
           onSubmit={sendAns}
           className="absolute right-20 bottom-20 text-4xl border-black border-b-2 focus-within:border-purple-600 focus-within:border-b-[3px]"
         >
-          <label htmlFor="ans-prob1_1" className="focus-within:text-purple-600">
+          <label htmlFor="ans-prob1_2" className="focus-within:text-purple-600">
             A.
           </label>
-          <input id="ans-prob1_1" type="text"
+
+          <input id="ans-prob1_2" type="text"
             onChange={(e) => setAnsProb1_2(e.target.value)}
             value={ansProb1_2}
-            className="bg-[#FFF7F1] outline-none focus:border-purple-700 w-[200px] px-2 dark:bg-slate-800 focus:bg-transparent"
+            className="outline-none focus:border-purple-700 w-[200px] px-2 dark:bg-slate-800 focus:bg-transparent"
           />
         </form>
+        ) : (
+          <div
+            className="absolute right-20 bottom-20 text-4xl border-[#ff5160] border-b-2 focus-within:border-purple-600 focus-within:border-b-[3px] flex"
+          >
+            <div className="text-[#ff5160]">A.</div>
+            <div className="text-[#ff5160] w-[200px]">NEXT</div>
+          </div>
+        )}
+
+        {/* クリアマーク */}
+        {clearLampList['level1'][1] === "1" &&
+          <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] rotate-[-10deg]">
+            <Image src="/images/clear_stamp.png" width={400} height={70} alt=""/>
+          </div>
+        }
+
       </div>
     </div>
   )
