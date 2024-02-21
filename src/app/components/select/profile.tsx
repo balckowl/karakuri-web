@@ -45,14 +45,14 @@ const Profile = ({ clearCount, badges, currentBadge, setCurrentBadge }: { clearC
           <div className="absolute w-[100%] h-[1px] bg-black translate-y-[-16px] mb-10"></div>
           <div className="w-[70%] mx-auto my-20 flex justify-between">
             {badges.map((badge: string, index: number) => (
-              <div className="w-[90px] h-[90px] rounded-[50%] flex items-center justify-center" key={index}
-                onClick={() => handleChangeBadge(index)}>
+              <div className="w-[90px] h-[90px] rounded-[50%] flex items-center justify-center" key={index}>
                 {
                   badge === "1" ?
                     (<Image
                       src={`/images/selectLevel/level${index + 1}_badge.png`}
                       alt="" width={65} height={65}
                       className={`${currentBadge === index && "border-[5px] border-green-400 box-content"} rounded-[50%]`}
+                      onClick={() => handleChangeBadge(index)}
                     />) :
                     (<div className="bg-gray-500 w-[65px] h-[65px] rounded-[50%] flex items-center justify-center">
                       <FontAwesomeIcon icon={faQuestion} className="text-white" />
