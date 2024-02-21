@@ -67,7 +67,6 @@ const SelectLevel = () => {
   const [direction, setDirection] = useState<string>("");
   const stageName = ["始まりの部屋", "中間の盆地", "終わりの平地"]
   const keyframes = direction == "" ? [0] : direction === "L" ? ["20vw", 0] : ["-20vw", 0];
-  const [clearLampsList, setClearLampsList] = useState<number[][]>([[0, 1, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]])
 
   const positionMove = (operation: string) => {
     if (operation === "L" && position !== 0) {
@@ -79,6 +78,21 @@ const SelectLevel = () => {
 
   if (isLoading) {
     return <Loading />
+  }
+
+  // クリア判定
+  const isCleared = (index: number) => {
+    if(index < 0){
+      return true
+    }
+    const sum = clearLampList[`level${index + 1}`].reduce((acc:number, current:string) => acc + parseInt(current), 0);
+    const isSumGreaterThanOrEqualTo3 = sum >= 3;
+    
+    if (isSumGreaterThanOrEqualTo3) {
+      return true
+    } else {
+      return false
+    }
   }
 
   return (
@@ -115,16 +129,22 @@ const SelectLevel = () => {
                       animate={{ y: [20, 0], opacity: [0, 1] }}
                       transition={{ type: "spring", stiffness: 150, damping: 15, mass: 1 }}
                     >
-                      <Link href={`/level${index + 1}`} className="hover:opacity-80 transition-all">
-                        <div className="absolute top-[-296px] h-[270px] bg-[#ececdc] border-[#615734] border-[1px] w-max translate-x-[calc(-50%+22px)] p-6 rounded-lg">
+                      <Link href={`/level${index + 1}`}
+                        className={`${isCleared(index-1) ? "hover:opacity-80 transition-all" : "cursor-not-allowed"}`}
+                        onClick={(e) => {isCleared(index-1) || e.preventDefault()}}
+                      >
+                        <div className="absolute top-[-296px] h-[270px] bg-[#ececdc] w-max translate-x-[calc(-50%+22px)] p-6 rounded-lg">
+                          {/* 鍵 */}
+                          { isCleared(index-1) === false &&
+                            <div className="absolute w-[96%] h-[96%] bg-black top-[2%] left-[2%] rounded-lg z-[2000] opacity-80 flex justify-center items-center">
+                              <Image src="/images/selectLevel/closed.svg" width={100} height={100} alt="closed"></Image>
+                            </div>
+                          }
+
                           <div>
                             <p className="mb-2">レベル{index + 1} : {stageName[index]}</p>
+
                             <div className="flex gap-2 mb-2">
-                              {/* {clearLampsList[index].map((clearLamps: number, jndex: number) => (
-                                <div key={jndex}>
-                                  <div className={`w-[20px] h-[20px] bg-red border-[#615734] border-[1px] rounded-[50%] ${clearLampsList[index][jndex] == 0 ? "bg-white" : "bg-[#ee8f8f]"}`}></div>
-                                </div>
-                              ))} */}
                               {!isLoading && clearLampList[`level${index + 1}`].map((clearLamps: string, jndex: number) => (
                                 <div key={jndex}>
                                   <div className={`w-[20px] h-[20px] bg-red border-[#615734] border-[1px] rounded-[50%] ${!isLoading && clearLampList[`level${index + 1}`][jndex] === "1" && "bg-red-500"}`}></div>
@@ -134,7 +154,7 @@ const SelectLevel = () => {
                             <Image src={`/images/level${index}.jpg`} width={400} height={400} alt="level1" className="w-[200px] h-[160px] object-cover mb-2"></Image>
                           </div>
                         </div>
-                        <div className="relative down w-full mx-auto z-0"></div>
+                        <div className="relative down w-full mx-auto z-[-1]"></div>
                       </Link>
                     </motion.div>
 

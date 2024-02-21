@@ -12,7 +12,7 @@ const Nameplate = ({ children, currentBadge }: { children: ReactNode, currentBad
         "
       >
         {children}
-        <div className="w-[50px] h-[50px] bg-white rounded-[50%] mr-4">
+        <div className={`w-[50px] h-[50px] rounded-[50%] mr-4 ${currentBadge != -1 && "bg-white"}`}>
           {currentBadge != -1 && <Image
             src={`/images/selectLevel/level${currentBadge + 1}_badge.png`}
             alt="" width={65} height={65}

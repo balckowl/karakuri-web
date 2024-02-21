@@ -90,7 +90,7 @@ const Prob1_1 = ({ clearLampList }: { clearLampList: any }) => {
           <div
             className="absolute right-20 bottom-20 text-4xl border-[#ff5160] border-b-2 focus-within:border-purple-600 focus-within:border-b-[3px] flex"
           >
-            <div className="text-[#bd5059]">A.</div>
+            <div className="text-[#ff5160]">A.</div>
             <div className="text-[#ff5160] w-[200px]">HELLO</div>
           </div>
         )}
