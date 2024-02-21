@@ -8,7 +8,7 @@ import { doc, getDoc, setDoc } from "firebase/firestore"
 import { signIn, useSession } from "next-auth/react"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
-
+import ProbFooter from "@/app/components/probFooter"
 
 const Login = () => {
 
@@ -39,7 +39,7 @@ const Login = () => {
     }
 
     return (
-        <div>
+        <div className="h-[100vh] relative">
             <TopHeader pathname='/auth/login' />
             <div className="hero mt-[70px]">
                 <h2 className="text-center mb-7 text-[30px] font-bold">Login to karakuri-web</h2>
@@ -88,6 +88,9 @@ const Login = () => {
     <p>2024年02月20日 制定</p>
 
                 </div>
+            </div>
+            <div className="absolute bottom-0 w-[100%]">
+                <ProbFooter />
             </div>
         </div>
     )

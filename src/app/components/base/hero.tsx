@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { Button } from "@/app/components/ui/button"
 import Link from "next/link"
-
+import CatchCopy from "./catchCopy";
 
 const Hero = () => {
   return (
@@ -16,7 +16,7 @@ const Hero = () => {
       />
       <div className="absolute w-full h-full bg-black bg-opacity-80 z-50">
         <div className="w-max mx-auto h-full flex flex-col justify-center translate-y-[-16%] max-w-[1200px] p-2">
-          <p className="text-3xl text-white font-bold mb-8">ようこそ、からくり館へ</p>
+          <CatchCopy />
           <p className="text-white mb-20 lg:text-[20px]">
             あるサイトにログインしたとき、ある屋敷に閉じ込められてしまった。<br />
             どうやらこの屋敷にはWebを用いたからくりがあるらしい...<br />
