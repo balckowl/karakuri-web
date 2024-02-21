@@ -20,6 +20,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/app/components/ui/avatar"
 import { motion } from "framer-motion";
 import "./page.css"
 import { useGameStore } from "@/app/stores/GameStore"
+import Loading from "@/app/loading"
 
 const SelectLevel = () => {
 
@@ -27,6 +28,7 @@ const SelectLevel = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true)
   const [clearCount, setClearCount] = useState<number | null>()
   const [badges, setBadges] = useState<string[]>()
+  const [currentBadge, setCurrentBadge] = useState<number>(-1)
 
   const { clearLampList, setClearLampList } = useGameStore();
 
@@ -34,12 +36,15 @@ const SelectLevel = () => {
 
     setIsLoading(true)
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/user`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/user`, {
+      cache: "no-store"
+    })
 
     const userData = await res.json()
 
     setUserData(userData)
     setBadges(userData.badges)
+    setCurrentBadge(userData.currentBadge)
 
     let zeroCount = 0
 
@@ -54,7 +59,7 @@ const SelectLevel = () => {
   }
 
   useEffect(() => {
-      getUserData()
+    getUserData()
   }, [])
 
   const { data: session } = useSession()
@@ -72,6 +77,10 @@ const SelectLevel = () => {
     }
   }
 
+  if (isLoading) {
+    return <Loading />
+  }
+
   return (
     <div className="relative h-[100vh] bg-cover bg-center" style={{ backgroundImage: 'url(/images/select_back_black.jpg)' }}>
 
@@ -82,14 +91,14 @@ const SelectLevel = () => {
           <Dialog>
             <DialogTrigger>
               <div className="absolute top-6 z-[0] cursor-pointer transition-all">
-                <Nameplate><p className="text-blck text-xl pl-6">{session?.user.name}</p></Nameplate>
+                <Nameplate currentBadge={currentBadge}><p className="text-blck text-xl pl-6">{session?.user.name}</p></Nameplate>
               </div>
             </DialogTrigger>
             <DialogContent className="p-0">
               <DialogHeader>
                 <div className="text-black">
 
-                  <Profile clearCount={clearCount} badges={badges} />
+                  <Profile clearCount={clearCount} badges={badges} currentBadge={currentBadge} setCurrentBadge={setCurrentBadge} />
 
                 </div>
               </DialogHeader>
