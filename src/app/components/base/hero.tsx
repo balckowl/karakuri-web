@@ -8,7 +8,7 @@ const Hero = () => {
   return (
     <div className="relative w-full h-[100vh] flex flex-col justify-end items-center mb-10">
       <Image
-        src={"/images/karakuri-web_main.webp"}
+        src={"/images/top/karakuri-web_main.webp"}
         alt="main"
         width={1000}
         height={1000}

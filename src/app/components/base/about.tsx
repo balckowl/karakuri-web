@@ -27,7 +27,7 @@ const About = () => {
             }}
             className="w-[40%] max-w-[400px]"
           >
-            <Image src={"/images/sub1.webp"} alt="sub1" width={300} height={300} className="max-w-[300px] select-none w-full h-full object-cover" />
+            <Image src={"/images/top/sub1.webp"} alt="sub1" width={300} height={300} className="max-w-[300px] select-none w-full h-full object-cover" />
           </motion.div>
 
           <div className="w-[60%]">
@@ -49,7 +49,7 @@ const About = () => {
             }}
             className="w-[40%] max-w-[400px]"
           >
-            <Image src={"/images/sub2.webp"} alt="sub1" width={300} height={300} className="max-w-[300px] select-none w-full h-full object-cover" />
+            <Image src={"/images/top/sub2.webp"} alt="sub1" width={300} height={300} className="max-w-[300px] select-none w-full h-full object-cover" />
           </motion.div>
           <div className="w-[60%]">
             <h3 className="text-[24px] mb-2 lg:text-[32px]">AIによるサポート</h3>
@@ -71,7 +71,7 @@ const About = () => {
             }}
             className="w-[40%] max-w-[400px]"
           >
-            <Image src={"/images/sub3.webp"} alt="sub1" width={300} height={300} className="max-w-[300px] select-none w-full h-full object-cover" />
+            <Image src={"/images/top/sub3.webp"} alt="sub1" width={300} height={300} className="max-w-[300px] select-none w-full h-full object-cover" />
           </motion.div>
           <div className="w-[60%]">
             <h3 className="text-[24px] mb-2 lg:text-[32px]">ページのカスタマイズ</h3>

@@ -10,7 +10,7 @@ const TopHeader = ({ pathname = "/" }: { pathname?: string }) => {
       <div className="container flex items-center justify-between">
         <Link href="/">
           <div className="flex">
-            <Image src={"/images/karakuri-web_logo.png"} alt="logo" width={100} height={100} className="object-cover" />
+            <Image src={"/images/logo/karakuri-web_logo.png"} alt="logo" width={100} height={100} className="object-cover" />
             <h1 className="flex items-center text-[38px] font-bold ">karakuri-web</h1>
           </div>
         </Link>

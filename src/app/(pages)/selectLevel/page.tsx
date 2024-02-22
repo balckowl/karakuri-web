@@ -65,7 +65,7 @@ const SelectLevel = () => {
   const { data: session } = useSession()
   const [position, setPosition] = useState<number>(0);
   const [direction, setDirection] = useState<string>("");
-  const stageName = ["始まりの部屋", "中間の盆地", "終わりの平地"]
+  const stageName = ["始まりの部屋", "からくり部屋", "終わりの回廊"]
   const keyframes = direction == "" ? [0] : direction === "L" ? ["20vw", 0] : ["-20vw", 0];
 
   const positionMove = (operation: string) => {
@@ -96,7 +96,7 @@ const SelectLevel = () => {
   }
 
   return (
-    <div className="relative h-[100vh] bg-cover bg-center" style={{ backgroundImage: 'url(/images/select_back_black.jpg)' }}>
+    <div className="relative h-[100vh] bg-cover bg-center" style={{ backgroundImage: 'url(/images/selectLevel/select_back_black.jpg)' }}>
 
       <SelectHeader />
       <div>
@@ -142,7 +142,7 @@ const SelectLevel = () => {
                           }
 
                           <div>
-                            <p className="mb-2">レベル{index + 1} : {stageName[index]}</p>
+                            <p className="mb-2">レベル{index+1} : {stageName[index]}</p>
 
                             <div className="flex gap-2 mb-2">
                               {!isLoading && clearLampList[`level${index + 1}`].map((clearLamps: string, jndex: number) => (
@@ -151,7 +151,7 @@ const SelectLevel = () => {
                                 </div>
                               ))}
                             </div>
-                            <Image src={`/images/level${index}.jpg`} width={400} height={400} alt="level1" className="w-[200px] h-[160px] object-cover mb-2"></Image>
+                            <Image src={`/images/selectLevel/level${index+1}.jpg`} width={400} height={400} alt="level1" className="w-[200px] h-[160px] object-cover mb-2"></Image>
                           </div>
                         </div>
                         <div className="relative down w-full mx-auto z-[-1]"></div>

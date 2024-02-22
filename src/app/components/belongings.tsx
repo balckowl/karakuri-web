@@ -1,5 +1,5 @@
+import Image from "next/image";
 import { useGameStore } from "../stores/GameStore";
-
 
 const Belongings = () => {
   const { belongingList, havingItem,setHavingItem } = useGameStore();
@@ -9,8 +9,13 @@ const Belongings = () => {
         <div 
           key={index}
           onClick={() => setHavingItem(belonging)}
-          className={`w-[50px] h-[50px] ${belonging==havingItem && havingItem !== "" ? "bg-blue-600" : "bg-white"} border-black border-2`}
-        >{belonging}</div>
+          className={`w-[50px] h-[50px] border-black border-2 flex justify-center items-center ${belonging==havingItem && havingItem !== "" ? "bg-blue-600" : "bg-white"}`}
+        >
+          {
+            belonging=="scrollBar" ? <Image src="/images/level1/scroll.png" width={100} height={100} alt="scrollBar" className="w-[40px] h-[12px] object-fit"></Image> :
+            belonging=="scrollBar" && <Image src="/images/Hello_up.jpg" width={48} height={48} alt="scrollBar"></Image>
+          }
+        </div>
       ))}
     </div>
   )

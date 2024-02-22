@@ -59,7 +59,7 @@ const Prob1_3 = ({ clearLampList }: { clearLampList: any }) => {
       </div>
 
         {/* 回答フォーム */}
-        {clearLampList["level1"][0] === "2" ? (
+        {clearLampList["level1"][2] === "0" ? (
         <form
           onSubmit={sendAns}
           className="absolute right-20 bottom-20 text-4xl border-black border-b-2 focus-within:border-purple-600 focus-within:border-b-[3px]"

@@ -111,14 +111,14 @@ const Prob1_5 = ({ clearLampList }: { clearLampList: any }) => {
             onClick={()=>handleMove("U")} 
             className="w-[50px] h-[50px] bg-[#eceadc] cursor-pointer hover:bg-[#b8b897] transition-all border-black border-[1px] col-start-2 col-span-1 flex items-center justify-center border-b-0">
             <div className="w-full h-full flex items-center justify-center">
-              <div className="up"></div>
+              <div className="up-level1"></div>
             </div>
           </div>
           <div
             onClick={()=>handleMove("R")} 
             className="w-[50px] h-[50px] bg-[#eceadc] cursor-pointer hover:bg-[#b8b897] transition-all border-black border-[1px] col-start-3 col-span-1 row-start-2 row-span-1 flex items-center justify-center border-l-0">
             <div className="w-full h-full flex items-center justify-center">
-              <div className="right"></div>
+              <div className="right-level1"></div>
             </div>
           </div>
           <div
@@ -132,11 +132,11 @@ const Prob1_5 = ({ clearLampList }: { clearLampList: any }) => {
             onClick={()=>handleMove("L")} 
             className="w-[50px] h-[50px] bg-[#eceadc] cursor-pointer hover:bg-[#b8b897] transition-all border-black border-[1px] col-start-1 row-start-2 flex items-center justify-center border-r-0">
             <div className="w-full h-full flex items-center justify-center">
-              <div className="left"></div>
+              <div className="left-level1"></div>
             </div>
           </div>
           <div
-            className="w-[50px] h-[50px] bg-[#eceadc]  col-start-2 col-span-1 row-start-2 row-span-1  flex items-center justify-center">
+            className="w-[50px] h-[50px] bg-[#eceadc] col-start-2 col-span-1 row-start-2 row-span-1  flex items-center justify-center">
           </div>
       </div>
       

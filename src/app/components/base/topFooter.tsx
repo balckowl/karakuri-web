@@ -6,7 +6,7 @@ const TopFooter = () => {
     <div className="container">
       <div className="flex mb-12 border-black border-t-[1px] pt-10">
         <div className="w-[30%]">
-          <Image src={"/images/karakuri-web_logo.png"} alt="gyudon" width={230} height={230} className="mx-auto" />
+          <Image src={"/images/logo/karakuri-web_logo.png"} alt="gyudon" width={230} height={230} className="mx-auto" />
           <p className="text-center">karakuri web</p>
         </div>
         <div className="flex w-[70%] justify-around pt-10">
@@ -15,7 +15,7 @@ const TopFooter = () => {
 
             <div>
               <div className="flex justify-between mb-4">
-                <Image src={"/images/gyudon.png"} alt="牛丼" width={70} height={70} className="rounded-[50%]" />
+                <Image src={"/images/icon/gyudon.png"} alt="牛丼" width={70} height={70} className="rounded-[50%]" />
                 <div className="w-[50%]">
                   <p className="font-semibold">牛丼</p>
                   <p className="text-sm mb-2 text-[#444]">gyudon</p>
@@ -37,7 +37,7 @@ const TopFooter = () => {
 
             <div>
               <div className="flex justify-between mb-4">
-                <Image src={"/images/kusirattyo.jpg"} alt="kusirattyo" width={70} height={70} className="rounded-[50%]" />
+                <Image src={"/images/icon/kusirattyo.jpg"} alt="kusirattyo" width={70} height={70} className="rounded-[50%]" />
                 <div className="w-[50%]">
                   <p className="font-semibold">くしらっちょ</p>
                   <p className="text-sm mb-2 text-[#444]">kusirattyo</p>

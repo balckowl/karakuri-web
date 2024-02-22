@@ -63,7 +63,7 @@ const Prob1_2 = ({ clearLampList }: { clearLampList: any }) => {
         </div>
 
         {/* 回答フォーム */}
-        {clearLampList["level1"][0] === "1" ? (
+        {clearLampList["level1"][0] === "0" ? (
         <form
           onSubmit={sendAns}
           className="absolute right-20 bottom-20 text-4xl border-black border-b-2 focus-within:border-purple-600 focus-within:border-b-[3px]"
@@ -75,7 +75,7 @@ const Prob1_2 = ({ clearLampList }: { clearLampList: any }) => {
           <input id="ans-prob1_2" type="text"
             onChange={(e) => setAnsProb1_2(e.target.value)}
             value={ansProb1_2}
-            className="outline-none focus:border-purple-700 w-[200px] px-2 dark:bg-slate-800 focus:bg-transparent"
+            className="outline-none focus:border-purple-700 w-[200px] px-2 dark:bg-slate-800 bg-transparent"
           />
         </form>
         ) : (

@@ -5,6 +5,7 @@ import { signOut as signOutNextAuth, useSession } from "next-auth/react";
 import { signOut as signOutFirebase } from "firebase/auth";
 import { auth } from "@/lib/firebase/client";
 import DarkModeToggle from "./darkModeToggle";
+import Link from "next/link"
 
 const ProbHeader = ({ level }: { level: number }) => {
 
@@ -42,7 +43,7 @@ const ProbHeader = ({ level }: { level: number }) => {
           <HoverCardContent>
             <ul>
               <li className="p-2 border-black dark:border-white border-b-[1px]">
-                <div onClick={() => logOut()} className="w-full cursor-pointer">Logout</div>
+                <Link href="/selectLevel">セレクト画面に戻る</Link>
               </li>
               <DarkModeToggle />
             </ul>
