@@ -38,6 +38,7 @@ const Prob1_4 = ({ clearLampList }: { clearLampList: any }) => {
     if (data.judge == "correct") {
       toast.success('正解')
       setClearLampAtIndex('level1', 3, "1");
+      addNowNumber(-20)
     }
   }
 
@@ -48,7 +49,7 @@ const Prob1_4 = ({ clearLampList }: { clearLampList: any }) => {
   }, [nowNumber])
 
   return (
-    <div className="bg-[#FFF7F1] dark:bg-[#190a25] h-[86vh]">
+    <div className="relative bg-[#FFF7F1] dark:bg-[#190a25] h-[86vh]">
       <Toaster />
       <div className="mx-auto container h-full flex items-center">
         <div className="w-[80vw] mx-auto h-max p-[60px] border-black border-2 rounded-lg">
@@ -71,7 +72,7 @@ const Prob1_4 = ({ clearLampList }: { clearLampList: any }) => {
           <div className="flex w-10/12 mx-auto justify-between mb-10">
             {cardNumberList.map((cardNumber, index) => (
               <div key={index}
-                onClick={() => handleClickCard(index)}
+                onClick={() => {clearLampList['level1'][3] === "0" && handleClickCard(index)}}
                 className={`w-[70px] h-[100px] border-black border-2 flex items-center justify-around cursor-pointer ${isSelectCardList[index] ? "bg-blue-200 translate-y-[-10px]" : "bg-[#fff7f1]"}`}
               >
                 <p className="text-3xl font-bold text-black">{cardNumber}</p>
@@ -87,7 +88,7 @@ const Prob1_4 = ({ clearLampList }: { clearLampList: any }) => {
       {/* クリアマーク */}
       {clearLampList['level1'][3] === "1" &&
         <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] rotate-[-10deg]">
-          <Image src="/images/clear_stamp.png" width={400} height={70} alt="" />
+          <Image src="/images/prob/clear_stamp.png" width={400} height={70} alt="" />
         </div>
       }
     </div>

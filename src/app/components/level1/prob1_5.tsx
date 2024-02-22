@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import "./level1.css"
 import Image from "next/image";
 import { useGameStore } from "@/app/stores/GameStore";
+import Popup from "../Popup";
 
 const Prob1_5 = ({ clearLampList }: { clearLampList: any }) => {
 
@@ -82,6 +83,16 @@ const Prob1_5 = ({ clearLampList }: { clearLampList: any }) => {
     ]
   );
 
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const handleOpenPopup = () => {
+    setIsPopupOpen(true);
+  };
+
+  const handleClosePopup = () => {
+    setIsPopupOpen(false);
+  };
+
   return (
     <div className="relative h-[86vh] flex items-center container">
       <div className="h-[60vh] flex items-center flex-col mx-auto">
@@ -106,7 +117,7 @@ const Prob1_5 = ({ clearLampList }: { clearLampList: any }) => {
         </div>
       </div>
       {/* 操作盤 */}
-      <div className="absolute grid grid-cols-3 grid-rows-3 bottom-20 right-10">
+      <div className="absolute grid grid-cols-3 grid-rows-3 right-10 bottom-[160px]">
           <div
             onClick={()=>handleMove("U")} 
             className="w-[50px] h-[50px] bg-[#eceadc] cursor-pointer hover:bg-[#b8b897] transition-all border-black border-[1px] col-start-2 col-span-1 flex items-center justify-center border-b-0">
@@ -141,17 +152,26 @@ const Prob1_5 = ({ clearLampList }: { clearLampList: any }) => {
       </div>
       
       {/* Green Pointer(Item) */}
-      <div
-        onClick={() => getBelonging("greenPointer") }
-        className="cursor-pointer"
-      >GreenPointer</div>
+      {!isGetGreenPoiner && 
+        <div
+          onClick={() => {getBelonging("greenPointer"); setIsGetGreenPoiner(true); handleOpenPopup()} }
+          className="cursor-pointer absolute right-[60px] bottom-[360px]"
+        >
+          <Image src="/images/level1/greenPointer.png" width={100} height={100} alt="greenPointer"></Image>
+        </div>
+      }
 
       {/* クリアマーク */}
       {clearLampList['level1'][4] === "1" &&
         <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] rotate-[-10deg]">
-          <Image src="/images/clear_stamp.png" width={400} height={70} alt=""/>
+          <Image src="/images/prob1/clear_stamp.png" width={400} height={70} alt=""/>
         </div>
       }
+      
+      <Popup isOpen={isPopupOpen} onClose={handleClosePopup}>
+        <Image src={"/images/level1/greenPointer.png"} width={100} height={100} alt="greenPointer" className="mb-2"></Image>
+        <p>レーザーポインター(緑色)</p>
+      </Popup>
     </div>
   )
 }

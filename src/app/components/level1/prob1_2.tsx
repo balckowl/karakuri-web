@@ -64,7 +64,7 @@ const Prob1_2 = ({ clearLampList }: { clearLampList: any }) => {
         </div>
 
         {/* 回答フォーム */}
-        {clearLampList["level1"][0] === "0" ? (
+        {clearLampList["level1"][1] === "0" ? (
           <form
             onSubmit={sendAns}
             className="absolute right-20 bottom-20 text-4xl border-black border-b-2 focus-within:border-purple-600 focus-within:border-b-[3px]"
@@ -91,7 +91,7 @@ const Prob1_2 = ({ clearLampList }: { clearLampList: any }) => {
         {/* クリアマーク */}
         {clearLampList['level1'][1] === "1" &&
           <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] rotate-[-10deg]">
-            <Image src="/images/clear_stamp.png" width={400} height={70} alt="" />
+            <Image src="/images/prob/clear_stamp.png" width={400} height={70} alt="" />
           </div>
         }
 

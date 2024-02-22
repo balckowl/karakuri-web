@@ -54,21 +54,21 @@ const Prob1_1 = ({ clearLampList }: { clearLampList: any }) => {
   return (
     <div className="relative flex h-[86vh] items-center">
       <Toaster />
-      <div className="flex mx-auto container max-w-[1000px] justify-between flex-col h-[50vh] items-center lg:flex-row">
+      <div className="flex mx-auto container max-w-[1000px] justify-between flex-col h-[50vh] items-center lg:flex-ro">
         <div>
-          <div className="w-[600px] mx-auto h-[100px] flex items-end outline outline-2">
-            <Image src={"/images/level1/Hello_up.jpg"} alt="up" width={600} height={200} className="select-none" />
+          <div className="w-[600px] mx-auto h-[100px] flex items-end outline outline-2 bg-white dark:outline-black">
+            <Image src={"/images/level1/Hello_up.png"} alt="up" width={600} height={200} className="select-none" />
           </div>
           {/* ギミック */}
           <div
             onClick={() => { havingItem == "scrollBar" && setIsFitScrollBar(true) }}
-            className={`relative w-[600px] mx-auto h-[100px] ${isFitScrollBar && "overflow-x-scroll"} overflow-hidden outline outline-2`}
+            className={`relative w-[600px] mx-auto h-[100px] ${isFitScrollBar && "overflow-x-scroll"} overflow-hidden outline outline-2  dark:outline-black bg-white`}
           >
             <div className="w-[600px] ml-[65px]">
-              <Image src={"/images/level1/Hello_down.jpg"} alt="down" width={600} height={200} className="select-none" />
+              <Image src={"/images/level1/Hello_down.png"} alt="down" width={600} height={200} className="select-none" />
             </div>
             {!isFitScrollBar &&
-              <div className="absolute bottom-0 w-[600px] h-[14px] outline outline-2"></div>
+              <div className="absolute bottom-0 w-[600px] h-[14px] outline outline-2  dark:outline-black"></div>
             }
           </div>
           <div className="w-max mx-auto mt-12">
@@ -80,7 +80,7 @@ const Prob1_1 = ({ clearLampList }: { clearLampList: any }) => {
           {/* Scrool Bar(item) */}
           {isGetScrollBar == false &&
             <div onClick={() => { setIsGetScrollBar(true); getBelonging("scrollBar"); handleOpenPopup() }}>
-              <Image src={"/images/level1/scroll.png"} width={200} height={100} alt="scroll" className="object-fit h-[30px]"></Image>
+              <Image src={"/images/level1/scroll.jpg"} width={200} height={100} alt="scroll" className="object-fit h-[30px]"></Image>
             </div>
           }
 
@@ -121,7 +121,7 @@ const Prob1_1 = ({ clearLampList }: { clearLampList: any }) => {
 
       </div>
       <Popup isOpen={isPopupOpen} onClose={handleClosePopup}>
-        <Image src={"/images/level1/scroll.png"} width={200} height={100} alt="scroll" className="object-fit h-[30px] mb-2"></Image>
+        <Image src={"/images/level1/scroll.jpg"} width={200} height={100} alt="scroll" className="object-fit h-[30px] mb-2"></Image>
         <p>スクロールバー</p>
       </Popup>
     </div>
