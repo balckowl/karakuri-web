@@ -2,16 +2,13 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon as solidMoon } from "@fortawesome/free-solid-svg-icons";
 import { faMoon as regularMoon } from "@fortawesome/free-regular-svg-icons";
+import { useGameStore } from "../stores/GameStore";
 
 const DarkModeToggle = () => {
-  const [darkMode, setDarkMode] = useState(false);
-
+  const { darkMode, setDarkMode } = useGameStore();
   const toggleDarkMode = () => {
-    setDarkMode(prevDarkMode => {
-      const newDarkMode = !prevDarkMode;
-      document.documentElement.classList.toggle("dark", newDarkMode);
-      return newDarkMode;
-    });
+    document.documentElement.classList.toggle("dark");
+    setDarkMode(darkMode)
   };
 
   return (

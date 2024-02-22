@@ -12,15 +12,16 @@ import Prob1_2 from "@/app/components/level1/prob1_2"
 import Prob1_3 from "@/app/components/level1/prob1_3"
 import Prob1_4 from "@/app/components/level1/prob1_4"
 import Prob1_5 from "@/app/components/level1/prob1_5"
+import Popup from "@/app/components/Popup"
 import { useGameStore } from "@/app/stores/GameStore"
 import MouseHighlight from "@/app/components/level1/mouseHighlight"
 import Loading from "@/app/loading"
+import Image from "next/image"
 
 const Level1 = () => {
   const problemNumber: number = 5;
 
   const { level } = useGameStore();
-  // const [clearLampList, setClearLampsList] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState<any>(true)
   const [userData, setUserData] = useState<any>({})
   const { clearLampList, setClearLampList } = useGameStore();
@@ -53,12 +54,45 @@ const Level1 = () => {
     getUserData()
   }, [])
 
+  const [isPopupOpen, setIsPopupOpen] = useState(true);
+
+  const handleOpenPopup = () => {
+    setIsPopupOpen(true);
+  };
+
+  const handleClosePopup = () => {
+    setIsPopupOpen(false);
+  };
+
+  // 完全クリア判定
+  const isCompleted = (index: number) => {
+    const sum = clearLampList["level1"].reduce((acc:number, current:string) => acc + parseInt(current), 0);
+    const isSumGreaterThanOrEqualTo3 = sum == 5;
+    
+    if (isSumGreaterThanOrEqualTo3) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  
   if(isLoading){
     return <Loading />
-  }
-  
+  }  
+
   return (
     <div className="relative">
+
+      { isCompleted(level) && 
+        <Popup isOpen={isPopupOpen} onClose={handleClosePopup} popupTime={5}>
+          <p className="mb-2 text-center">コンプリートおめでとうございます</p>
+          <div className="w-[300px] h-[200px] flex flex-col items-center justify-center">
+            <Image src={"/images/selectLevel/level1_badge.png"} width={100} height={100} alt="scroll" className="object-fit  mb-2"></Image>
+            <p>バッジを入手しました</p>
+          </div>
+        </Popup>
+      }
       { havingItem == "greenPointer" &&
         <MouseHighlight />
       }

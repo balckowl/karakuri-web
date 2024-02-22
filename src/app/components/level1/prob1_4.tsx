@@ -8,7 +8,7 @@ const Prob1_4 = ({ clearLampList }: { clearLampList: any }) => {
 
   const cardNumberList = [1, 8, 6, 3, 4];;
   const [isSelectCardList, setIsSelectCardList] = useState<boolean[]>([false, false, false, false, false]);
-  const { nowNumber, addNowNumber } = useGameStore();
+  const { nowNumber, addNowNumber, darkMode } = useGameStore();
   const { setClearLampAtIndex } = useGameStore()
 
   const handleClickCard = (index: number) => {
@@ -88,7 +88,7 @@ const Prob1_4 = ({ clearLampList }: { clearLampList: any }) => {
       {/* クリアマーク */}
       {clearLampList['level1'][3] === "1" &&
         <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] rotate-[-10deg]">
-          <Image src="/images/prob/clear_stamp.png" width={400} height={70} alt="" />
+          <Image src={darkMode ? "/images/prob/clear_stamp_dark.png": "/images/prob/clear_stamp.png"} width={400} height={70} alt="" />
         </div>
       }
     </div>

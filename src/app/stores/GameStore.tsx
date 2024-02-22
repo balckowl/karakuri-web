@@ -11,6 +11,8 @@ interface TGameStoreState {
     setClearLampAtIndex: (level:any , index:any, value:any) => void;
     nowNumber: number;
     addNowNumber: (number: number) => void;
+    darkMode: boolean;
+    setDarkMode: (dark: boolean) => void;
 }
 
 export const useGameStore = create<TGameStoreState>()((set) => ({
@@ -44,6 +46,10 @@ export const useGameStore = create<TGameStoreState>()((set) => ({
     nowNumber: 0,
     addNowNumber: (val: number) => set((state) => ({
         nowNumber: state.nowNumber + val
+    })),
+    darkMode: false,
+    setDarkMode: (dark: boolean) => set((state) => ({
+        darkMode: !dark
     })),
 }))
 

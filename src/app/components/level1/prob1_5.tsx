@@ -8,7 +8,7 @@ import Popup from "../Popup";
 const Prob1_5 = ({ clearLampList }: { clearLampList: any }) => {
 
   const [isGetGreenPoiner, setIsGetGreenPoiner] = useState<boolean>(false);
-  const { getBelonging, havingItem, setClearLampAtIndex } = useGameStore();
+  const { getBelonging, havingItem, setClearLampAtIndex, darkMode } = useGameStore();
 
   function deepCopy2DArray(arr: any) {
     return arr.map(function(subArray: any) {
@@ -164,13 +164,16 @@ const Prob1_5 = ({ clearLampList }: { clearLampList: any }) => {
       {/* クリアマーク */}
       {clearLampList['level1'][4] === "1" &&
         <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] rotate-[-10deg]">
-          <Image src="/images/prob1/clear_stamp.png" width={400} height={70} alt=""/>
+          <Image src={darkMode ? "/images/prob/clear_stamp_dark.png": "/images/prob/clear_stamp.png"} width={400} height={70} alt=""/>
         </div>
       }
       
       <Popup isOpen={isPopupOpen} onClose={handleClosePopup}>
-        <Image src={"/images/level1/greenPointer.png"} width={100} height={100} alt="greenPointer" className="mb-2"></Image>
-        <p>レーザーポインター(緑色)</p>
+        <p>アイテムを入手しました</p>
+        <div className="w-[300px] h-[200px] flex flex-col items-center justify-center">
+          <Image src={"/images/level1/GreenPointer.png"} width={100} height={100} alt="greenPointer" className="mb-2"></Image>
+          <p>レーザーポインター(緑色)</p>
+        </div>
       </Popup>
     </div>
   )
