@@ -68,6 +68,23 @@ const POST = async (req: NextRequest, { params }: { params: { id: string } }) =>
         }
     }
 
+    if (id === "4") {
+        if (ans === 20) {
+            updatedLevel1[3] = "1"
+
+            await db.collection("users").doc(uid).set({
+                clearLampList: {
+                    ...userData?.clearLampList,
+                    level1: updatedLevel1
+                }
+            }, { merge: true })
+
+            return NextResponse.json({ judge: "correct" })
+        } else {
+            return NextResponse.json({ judge: "incorrect" })
+        }
+    }
+
     return NextResponse.json({})
 }
 

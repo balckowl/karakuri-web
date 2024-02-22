@@ -14,6 +14,7 @@ import Prob1_4 from "@/app/components/level1/prob1_4"
 import Prob1_5 from "@/app/components/level1/prob1_5"
 import { useGameStore } from "@/app/stores/GameStore"
 import MouseHighlight from "@/app/components/level1/mouseHighlight"
+import Loading from "@/app/loading"
 
 const Level1 = () => {
   const problemNumber: number = 5;
@@ -51,6 +52,10 @@ const Level1 = () => {
   useEffect(() => {
     getUserData()
   }, [])
+
+  if(isLoading){
+    return <Loading />
+  }
   
   return (
     <div className="relative">

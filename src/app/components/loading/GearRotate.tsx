@@ -1,8 +1,9 @@
 "use client"
+
 import Image from "next/image"
 import { motion } from "framer-motion"
 
-const GearRootating = () => {
+const GearRotate = () => {
   return (
     <div className="flex justify-center flex-col items-center">
       <motion.div
@@ -32,4 +33,4 @@ const GearRootating = () => {
   )
 }
 
-export default GearRootating
+export default GearRotate
