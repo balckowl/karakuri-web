@@ -6,6 +6,7 @@ import { auth } from "@/lib/firebase/client";
 
 import Image from "next/image";
 import Link from "next/link"
+import { useEffect } from "react";
 
 const SelectHeader = ({ pathname = "/" }: { pathname?: string }) => {
   const { data: session } = useSession()
@@ -17,9 +18,12 @@ const SelectHeader = ({ pathname = "/" }: { pathname?: string }) => {
     signOutNextAuth({ callbackUrl: '/' })
   }
 
+  useEffect(() => {
+    document.documentElement.classList.remove("dark");
+  },[])
 
   return (
-    <header className="bg-[#333] h-[80px] flex">
+    <header className="bg-[#000] h-[80px] flex bg-opacity-80">
       <div className="container flex items-center justify-between">
         <Link href="/">
           <div className="flex">

@@ -51,10 +51,10 @@ const Prob1_3 = ({ clearLampList }: { clearLampList: any }) => {
     <div className="h-[86vh] flex items-center relative">
       <div className="h-max mx-auto container">
         <div className="w-max mx-auto">
-          <div className="w-[300px] h-[120px] mx-auto rounded-md border-[2px] border-black mb-[60px] text-[40px] text-white flex justify-center items-center">
+          <div className="w-[300px] h-[120px] mx-auto border-[2px] border-black dark:border-white rounded-md mb-[60px] text-[40px] text-white flex justify-center items-center">
             <p className="hidden dark:block">console</p>
           </div>
-          <p className="text-[40px] dark:text-gray-800">くらくなると、<span className="text-red-600">み</span>え<span className="text-red-600">て</span>くるもの</p>
+          <p className="text-[40px] text-[#020817]">くらくなると、<span className="text-red-600 dark:text-[#ff7d88]">み</span>え<span className="text-red-600 dark:text-[#ff7d88]">て</span>くるもの</p>
         </div>
       </div>
 
@@ -76,10 +76,10 @@ const Prob1_3 = ({ clearLampList }: { clearLampList: any }) => {
         </form>
         ) : (
           <div
-            className="absolute right-20 bottom-20 text-4xl border-[#ff5160] border-b-2 focus-within:border-purple-600 focus-within:border-b-[3px] flex"
+            className="absolute right-20 bottom-20 text-4xl border-[#ff5160] dark:border-[#ff7d88] border-b-2 focus-within:border-purple-600 focus-within:border-b-[3px] flex"
           >
-            <div className="text-[#ff5160]">A.</div>
-              <div className="text-[#ff5160] w-[200px] flex">
+            <div className="text-[#ff5160] dark:text-[#ff7d88]">A.</div>
+              <div className="text-[#ff5160] dark:text-[#ff7d88] w-[200px] flex">
                 <div>TOUR</div>
                 <div
                   className={`${havingItem=="greenPointer" && "cursor-pointer"}`}

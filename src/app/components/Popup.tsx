@@ -27,7 +27,7 @@ const Popup = ({ isOpen, onClose, children }: { isOpen: any, onClose: any, child
           animate={{ opacity: [0,1,1,1,1,1,1,1,0], scale: [0,1.1,1,1,1,1,1,1,0.3]}}
           exit={{ opacity: 0 }}
           transition={{ duration: 2, ease: "easeOut" }}
-          className="fixed top-[50%] left-[50%] bg-white p-[20px] shadow-lg z-[1000] rounded-lg"
+          className="fixed top-[50%] left-[50%] bg-white dark:bg-[#020817] p-[20px] shadow-lg z-[1000] rounded-lg"
         >
           <div>
             <div className="w-max mx-auto">

@@ -53,7 +53,7 @@ const Chatbot = () => {
     <div>
       <Popover>
         <PopoverTrigger className="fixed w-[60px] h-[60px] bg-white right-10 bottom-8 rounded-[13px] border border-black items-center">
-          <FontAwesomeIcon icon={faMessage} className="text-[30px] mt-1"/>
+          <FontAwesomeIcon icon={faMessage} className="text-[30px] mt-1 text-black"/>
         </PopoverTrigger>
         <PopoverContent key="popover-content" className="w-[500px] h-[500px]" align={"end"}>
           <div className="flex flex-col justify-between h-full">
@@ -69,7 +69,7 @@ const Chatbot = () => {
                             <AvatarFallback>CN</AvatarFallback>
                           </Avatar>
                         }
-                        <p className={`text-[13px] bg-green-300 rounded-b ${message.user === "alagin" ? "rounded-tr" : "rounded-tl"} p-2 mt-[15px]`}>
+                        <p className={`text-[13px] bg-green-300 dark:bg-[#0f3f0f] rounded-b ${message.user === "alagin" ? "rounded-tr" : "rounded-tl"} p-2 mt-[15px]`}>
                           {message.text}
                         </p>
                       </div>
