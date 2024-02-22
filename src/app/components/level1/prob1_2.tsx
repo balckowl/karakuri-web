@@ -9,7 +9,7 @@ import toast, { Toaster } from "react-hot-toast";
 const Prob1_2 = ({ clearLampList }: { clearLampList: any }) => {
 
   const [ansProb1_2, setAnsProb1_2] = useState<string>("");
-  const { setClearLampAtIndex } = useGameStore()
+  const { setClearLampAtIndex, darkMode } = useGameStore()
 
   const sendAns = async (e: FormEvent) => {
 
@@ -67,7 +67,7 @@ const Prob1_2 = ({ clearLampList }: { clearLampList: any }) => {
         {clearLampList["level1"][1] === "0" ? (
           <form
             onSubmit={sendAns}
-            className="absolute right-20 bottom-20 text-4xl border-black border-b-2 focus-within:border-purple-600 focus-within:border-b-[3px]"
+            className="absolute right-20 bottom-20 text-4xl border-black dark:border-white border-b-2 focus-within:border-purple-600 focus-within:border-b-[3px]"
           >
             <label htmlFor="ans-prob1_2" className="focus-within:text-purple-600">
               A.
@@ -76,7 +76,7 @@ const Prob1_2 = ({ clearLampList }: { clearLampList: any }) => {
             <input id="ans-prob1_2" type="text"
               onChange={(e) => setAnsProb1_2(e.target.value)}
               value={ansProb1_2}
-              className="outline-none focus:border-purple-700 w-[200px] px-2 dark:bg-slate-800 bg-transparent"
+              className="outline-none focus:border-purple-700 w-[200px] px-2 bg-transparent"
             />
           </form>
         ) : (
@@ -91,7 +91,7 @@ const Prob1_2 = ({ clearLampList }: { clearLampList: any }) => {
         {/* クリアマーク */}
         {clearLampList['level1'][1] === "1" &&
           <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] rotate-[-10deg]">
-            <Image src="/images/prob/clear_stamp.png" width={400} height={70} alt="" />
+            <Image src={darkMode ? "/images/prob/clear_stamp_dark.png": "/images/prob/clear_stamp.png"} width={400} height={70} alt="" />
           </div>
         }
 

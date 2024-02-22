@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ReactNode, useEffect } from "react";
 
-const Popup = ({ isOpen, onClose, children }: { isOpen: any, onClose: any, children: ReactNode }) => {
+const Popup = ({ isOpen, onClose, children, popupTime=2 }: { isOpen: any, onClose: any, children: ReactNode, popupTime?:number }) => {
 
   const handleClose = () => {
     onClose();
@@ -12,7 +12,7 @@ const Popup = ({ isOpen, onClose, children }: { isOpen: any, onClose: any, child
     if (isOpen) {
       const timeout = setTimeout(() => {
         handleClose();
-      }, 2000);
+      }, popupTime * 1000);
 
       return () => clearTimeout(timeout);
     }
@@ -26,18 +26,11 @@ const Popup = ({ isOpen, onClose, children }: { isOpen: any, onClose: any, child
           initial={{ x:"-50%", y:"-50%" }}
           animate={{ opacity: [0,1,1,1,1,1,1,1,0], scale: [0,1.1,1,1,1,1,1,1,0.3]}}
           exit={{ opacity: 0 }}
-          transition={{ duration: 2, ease: "easeOut" }}
+          transition={{ duration: popupTime, ease: "easeOut" }}
           className="fixed top-[50%] left-[50%] bg-white dark:bg-[#020817] p-[20px] shadow-lg z-[1000] rounded-lg"
         >
-          <div>
-            <div className="w-max mx-auto">
-              <p className="mb-2 text-center">アイテムを入手しました</p>
-              <div className="w-[20px] h-[2px] bg-black mx-auto"></div>
-            </div>
-            <div className="w-[300px] h-[200px] flex flex-col items-center justify-center">
               { children }
-            </div>
-          </div>
+
         </motion.div>
       )}
 
