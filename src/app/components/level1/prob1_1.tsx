@@ -102,10 +102,10 @@ const Prob1_1 = ({ clearLampList }: { clearLampList: any }) => {
         </form>
         ) : (
           <div
-            className="absolute right-20 bottom-20 text-4xl border-[#ff5160] border-b-2 focus-within:border-purple-600 focus-within:border-b-[3px] flex"
+            className="absolute right-20 bottom-20 text-4xl border-[#ff5160] dark:border-[#ff7d88] border-b-2 focus-within:border-purple-600 focus-within:border-b-[3px] flex"
           >
-            <div className="text-[#ff5160]">A.</div>
-            <div className="text-[#ff5160] w-[200px]">HELLO</div>
+            <div className="text-[#ff5160] dark:text-[#ff7d88]">A.</div>
+            <div className="text-[#ff5160] w-[200px] dark:text-[#ff7d88]">HELLO</div>
           </div>
         )}
 

@@ -8,8 +8,8 @@ const Belongings = () => {
       {belongingList.map((belonging:string, index: number) => (
         <div 
           key={index}
-          onClick={() => setHavingItem(belonging)}
-          className={`w-[50px] h-[50px] border-black border-2 flex justify-center items-center ${belonging==havingItem && havingItem !== "" ? "bg-blue-600" : "bg-white"}`}
+          onClick={() => {belonging==havingItem ? setHavingItem(""): setHavingItem(belonging)}}
+          className={`w-[50px] h-[50px] border-black border-2 flex justify-center items-center bg-white ${belonging==havingItem && havingItem !== "" && "border-blue-900 border-[6px]"} select-none`}
         >
           {
             belonging=="scrollBar" ? <Image src="/images/level1/scroll.png" width={100} height={100} alt="scrollBar" className="w-[40px] h-[12px] object-fit"></Image> :

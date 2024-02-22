@@ -52,12 +52,12 @@ const Prob1_5 = ({ clearLampList }: { clearLampList: any }) => {
     const newGrid = deepCopy2DArray(grid)
     newGrid[playerX][playerY] = "."
     newGrid[x][y] = dir
-    newGrid[gridSize-1][gridSize-1] = "G"
+    newGrid[2][3] = "G"
     setGrid(newGrid)
     setPlayerX(x)
     setPlayerY(y)
     setDirection(dir)
-    if(x==gridSize-1 && y==gridSize-1){
+    if(x==0 && y==3){
       console.log("goal")
     }
   }
@@ -74,16 +74,16 @@ const Prob1_5 = ({ clearLampList }: { clearLampList: any }) => {
   const [direction, setDirection] = useState<string>("R");
   const [grid, setGrid] = useState<string[][]>(
     [
-      [".",".","#",".","."],
       [".",".",".",".","."],
-      [".",".",".",".","#"],
-      [".","#",".","#","#"],
-      [".",".",".","x","G"],
+      [".",".",".","#","#"],
+      [".",".","#","G","x"],
+      ["#",".",".","#","."],
+      [".",".",".",".","."],
     ]
   );
 
   return (
-    <div className="relative bg-white dark:bg-gray-800 h-[86vh] flex items-center container">
+    <div className="relative h-[86vh] flex items-center container">
       <div className="h-[60vh] flex items-center flex-col mx-auto">
         <div className="mx-auto outline mb-12">
           {grid.map((mass, index) => (
@@ -91,7 +91,7 @@ const Prob1_5 = ({ clearLampList }: { clearLampList: any }) => {
               {mass.map((item, index) => (
                 <div
                   key={index}
-                  className={`w-[100px] h-[100px] border-black border-[1px] ${item=="#" && "bg-black"}`}
+                  className={`w-[100px] h-[100px] border-black dark:border-white border-[1px] ${item=="#" && "bg-black dark:bg-white"}`}
                 >
                   <p className="h-full flex items-center justify-center text-4xl font-bold">
                     {"URDLG".includes(item) && item}

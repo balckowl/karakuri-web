@@ -13,9 +13,15 @@ const ProbHeader = ({ level }: { level: number }) => {
   const { data: session } = useSession()
 
   const bgColor = classnames({
-    "bg-[#E78895]": level === 1,
+    "bg-[#E78895] dark:bg-[#391855]": level === 1,
     "bg-green-500": level === 2,
     "bg-purple-500": level === 3,
+  });
+
+  const title = classnames({
+    "はじまりの部屋": level === 1,
+    "からくり部屋": level === 2,
+    "終わりの回廊": level === 3,
   });
 
   const logOut = async () => {
@@ -29,7 +35,7 @@ const ProbHeader = ({ level }: { level: number }) => {
   return (
     <header className={`h-[80px] ${bgColor} flex items-center`}>
       <div className="container mx-auto flex justify-between">
-        <h2 className="text-3xl font-bold text-white">Lv.{level}</h2>
+        <h2 className="text-3xl font-bold text-white">Lv.{level}　{title}</h2>
         <HoverCard>
           <HoverCardTrigger asChild  className="hover:opacity-90 transition-all cursor-pointer">
             <div className="flex items-center gap-6">
@@ -43,7 +49,7 @@ const ProbHeader = ({ level }: { level: number }) => {
           <HoverCardContent>
             <ul>
               <li className="p-2 border-black dark:border-white border-b-[1px]">
-                <Link href="/selectLevel">セレクト画面に戻る</Link>
+                <Link href="/selectLevel" className="hover:opacity-80 transition-all">セレクト画面に戻る</Link>
               </li>
               <DarkModeToggle />
             </ul>

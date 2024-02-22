@@ -16,7 +16,7 @@ const DarkModeToggle = () => {
 
   return (
     <div>
-      <li  onClick={toggleDarkMode}  className="flex items-center justify-between cursor-pointer">
+      <li  onClick={toggleDarkMode}  className="flex items-center justify-between cursor-pointer hover:opacity-80 transition-all">
         <p className="p-2">モード切替</p>
         <button className="px-2">
           <FontAwesomeIcon icon={darkMode ? solidMoon : regularMoon} className="text-2xl"/>

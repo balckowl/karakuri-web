@@ -43,21 +43,21 @@ const Prob1_2 = ({ clearLampList }: { clearLampList: any }) => {
   const isExtraSmall = useMediaQuery("(min-width: 600px)")
 
   return (
-    <div className="bg-[#FFF7F1] dark:bg-red-950 h-[86vh] relative">
+    <div className="bg-[#FFF7F1] dark:bg-[#190a25] h-[86vh] relative">
       <div className="mx-auto container h-full flex items-center">
 
         {/* TODO Next.jsでReact-responsiveは使えないので、使わないで書く */}
-        <div className="mx-auto w-[90%] max-w-[800px] h-[200px] flex items-center justify-center outline bg-white">
-          <div className="w-[40%] h-full border-l border-black border-2 flex items-center justify-center text-[60px]">
+        <div className="mx-auto w-[90%] max-w-[800px] h-[200px] flex items-center justify-center outline">
+          <div className="w-[40%] h-full border-l border-black dark:border-white border-2 flex items-center justify-center text-[60px]">
             {isLarge && "N"}
           </div>
-          <div className="w-[30%] h-full border-l border-black border-2 flex items-center justify-center text-[60px]">
+          <div className="w-[30%] h-full border-l border-black dark:border-white border-2 flex items-center justify-center text-[60px]">
             {isMidium && !isLarge && "E"}
           </div>
-          <div className="w-[20%] h-full border-l border-black border-2 flex items-center justify-center text-[60px]">
+          <div className="w-[20%] h-full border-l border-black dark:border-white border-2 flex items-center justify-center text-[60px]">
             {isSmall && !isMidium && "X"}
           </div>
-          <div className="w-[10%] h-full border-l border-black border-2 flex items-center justify-center text-[60px]">
+          <div className="w-[10%] h-full border-l border-black dark:border-white border-2 flex items-center justify-center text-[60px]">
             {isExtraSmall && !isSmall && "T"}
           </div>
         </div>
@@ -80,10 +80,10 @@ const Prob1_2 = ({ clearLampList }: { clearLampList: any }) => {
         </form>
         ) : (
           <div
-            className="absolute right-20 bottom-20 text-4xl border-[#ff5160] border-b-2 focus-within:border-purple-600 focus-within:border-b-[3px] flex"
+            className="absolute right-20 bottom-20 text-4xl border-[#ff5160] dark:border-[#ff7d88] border-b-2 focus-within:border-purple-600 focus-within:border-b-[3px] flex"
           >
-            <div className="text-[#ff5160]">A.</div>
-            <div className="text-[#ff5160] w-[200px]">NEXT</div>
+            <div className="text-[#ff5160] dark:text-[#ff7d88]">A.</div>
+            <div className="text-[#ff5160] dark:text-[#ff7d88] w-[200px]">NEXT</div>
           </div>
         )}
 
