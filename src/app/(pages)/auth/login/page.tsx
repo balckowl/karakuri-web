@@ -9,17 +9,23 @@ import { signIn, useSession } from "next-auth/react"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 import ProbFooter from "@/app/components/probFooter"
+import { useState } from "react"
+import Loading from "@/app/loading"
 
 const Login = () => {
 
     const { data: session, status } = useSession()
     const router = useRouter()
+    const [isLoading, setIsLoading] = useState<boolean>(false)
 
     const googleProvider = new GoogleAuthProvider
 
-    const signInWithGoogle = () => {
+    const signInWithGoogle = async() => {
 
-        signInWithPopup(auth, googleProvider).then(async (credential) => {
+        setIsLoading(true)
+
+        await signInWithPopup(auth, googleProvider).then(async (credential) => {
+
             const idToken = await credential.user.getIdToken(true)
 
             const userDocRef = doc(db, "users", credential.user.uid);
@@ -34,9 +40,16 @@ const Login = () => {
             }
 
             signIn("credentials", { idToken, callbackUrl: '/selectLevel' })
+
         }).catch((err) => {
             console.log(err)
+            setIsLoading(false)
         })
+
+    }
+
+    if(isLoading){
+        return <Loading />
     }
 
     return (
