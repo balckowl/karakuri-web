@@ -1,9 +1,9 @@
 "use client"
 import { useGameStore } from "@/app/stores/GameStore";
-import axios from "axios";
 import Image from "next/image";
 import { FormEvent, useState } from "react"
 import Popup from "../Popup";
+import toast, { Toaster } from "react-hot-toast"
 
 const Prob1_1 = ({ clearLampList }: { clearLampList: any }) => {
   const [isGetScrollBar, setIsGetScrollBar] = useState<boolean>(false);
@@ -19,6 +19,8 @@ const Prob1_1 = ({ clearLampList }: { clearLampList: any }) => {
       return
     }
 
+    toast.loading('判定中')
+
     const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/level1/judge/1`, {
       method: "POST",
       headers: {
@@ -29,13 +31,13 @@ const Prob1_1 = ({ clearLampList }: { clearLampList: any }) => {
 
     const data = await res.json()
 
-    console.log(data)
+    toast.dismiss()
 
     if (data.judge == "correct") {
-      window.alert('正解')
+      toast.success('正解')
       setClearLampAtIndex('level1', 0, "1")
     } else {
-      window.alert('不正解')
+      toast.error('不正解')
     }
   }
 
@@ -51,6 +53,7 @@ const Prob1_1 = ({ clearLampList }: { clearLampList: any }) => {
 
   return (
     <div className="relative flex h-[86vh] items-center">
+      <Toaster />
       <div className="flex mx-auto container max-w-[1000px] justify-between flex-col h-[50vh] items-center lg:flex-row">
         <div>
           <div className="w-[600px] mx-auto h-[100px] flex items-end outline outline-2">
@@ -69,7 +72,7 @@ const Prob1_1 = ({ clearLampList }: { clearLampList: any }) => {
             }
           </div>
           <div className="w-max mx-auto mt-12">
-            <Image src={"/images/level1/left_arrow.png"} alt="down" width={80} height={80} className="select-none rotate-180"/>
+            <Image src={"/images/level1/left_arrow.png"} alt="down" width={80} height={80} className="select-none rotate-180" />
           </div>
         </div>
         <div className="w-max text-center justify-end">
@@ -86,20 +89,20 @@ const Prob1_1 = ({ clearLampList }: { clearLampList: any }) => {
 
         {/* 回答フォーム */}
         {clearLampList["level1"][0] === "0" ? (
-        <form
-          onSubmit={sendAns}
-          className="absolute right-20 bottom-20 text-4xl border-black border-b-2 focus-within:border-purple-600 focus-within:border-b-[3px]"
-        >
-          <label htmlFor="ans-prob1_1" className="focus-within:text-purple-600">
-            A.
-          </label>
+          <form
+            onSubmit={sendAns}
+            className="absolute right-20 bottom-20 text-4xl border-black border-b-2 focus-within:border-purple-600 focus-within:border-b-[3px]"
+          >
+            <label htmlFor="ans-prob1_1" className="focus-within:text-purple-600">
+              A.
+            </label>
 
-          <input id="ans-prob1_1" type="text"
-            onChange={(e) => setAnsProb1_1(e.target.value)}
-            value={ansProb1_1}
-            className="outline-none focus:border-purple-700 w-[200px] px-2 dark:bg-slate-800 bg-transparent"
-          />
-        </form>
+            <input id="ans-prob1_1" type="text"
+              onChange={(e) => setAnsProb1_1(e.target.value)}
+              value={ansProb1_1}
+              className="outline-none focus:border-purple-700 w-[200px] px-2 dark:bg-slate-800 bg-transparent"
+            />
+          </form>
         ) : (
           <div
             className="absolute right-20 bottom-20 text-4xl border-[#ff5160] dark:border-[#ff7d88] border-b-2 focus-within:border-purple-600 focus-within:border-b-[3px] flex"
@@ -112,7 +115,7 @@ const Prob1_1 = ({ clearLampList }: { clearLampList: any }) => {
         {/* クリアマーク */}
         {clearLampList['level1'][0] === "1" &&
           <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] rotate-[-10deg]">
-            <Image src="/images/prob/clear_stamp.png" width={400} height={70} alt=""/>
+            <Image src="/images/prob/clear_stamp.png" width={400} height={70} alt="" />
           </div>
         }
 
