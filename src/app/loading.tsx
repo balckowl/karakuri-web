@@ -1,6 +1,10 @@
+import GearRootating from "./components/loading/GearRotating"
+
 const Loading = () => {
   return (
-    <div>loading</div>
+    <div className="py-[100px]">
+      <GearRootating />
+    </div>
   )
 }
 
