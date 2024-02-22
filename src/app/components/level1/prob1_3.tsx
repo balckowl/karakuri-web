@@ -85,7 +85,7 @@ const Prob1_3 = ({ clearLampList }: { clearLampList: any }) => {
             <div>TOUR</div>
             <div
               className={`${havingItem == "greenPointer" && "cursor-pointer"}`}
-              onClick={() => { havingItem == "greenPointer" && handleClickTOUR1ST() }}
+              onClick={() => { havingItem == "greenPointer" && clearLampList['level1'][3] === "0" && handleClickTOUR1ST() }}
             ><div className={`inline-block ${isClickedTOUR1ST && "translate-y-[-6px]"}`}>1</div></div>
             <div>ST</div>
           </div>
@@ -95,7 +95,7 @@ const Prob1_3 = ({ clearLampList }: { clearLampList: any }) => {
       {/* クリアマーク */}
       {clearLampList['level1'][2] === "1" &&
         <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] rotate-[-10deg]">
-          <Image src="/images/clear_stamp.png" width={400} height={70} alt="" />
+          <Image src="/images/prob/clear_stamp.png" width={400} height={70} alt="" />
         </div>
       }
 
