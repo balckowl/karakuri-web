@@ -17,6 +17,8 @@ import { useGameStore } from "@/app/stores/GameStore"
 import MouseHighlight from "@/app/components/level1/mouseHighlight"
 import Loading from "@/app/loading"
 import Image from "next/image"
+import Confetti from "@/app/components/level1/Confetti"
+
 
 const Level1 = () => {
   const problemNumber: number = 5;
@@ -66,9 +68,9 @@ const Level1 = () => {
 
   // 完全クリア判定
   const isCompleted = (index: number) => {
-    const sum = clearLampList["level1"].reduce((acc:number, current:string) => acc + parseInt(current), 0);
+    const sum = clearLampList["level1"].reduce((acc: number, current: string) => acc + parseInt(current), 0);
     const isSumGreaterThanOrEqualTo3 = sum == 5;
-    
+
     if (isSumGreaterThanOrEqualTo3) {
       return true
     } else {
@@ -76,35 +78,35 @@ const Level1 = () => {
     }
   }
 
-  
-  if(isLoading){
+
+  if (isLoading) {
     return <Loading />
-  }  
+  }
 
   return (
     <div className="relative">
-
-      { isCompleted(level) && 
+      {isCompleted(level) &&
         <Popup isOpen={isPopupOpen} onClose={handleClosePopup} popupTime={5}>
           <p className="mb-2 text-center">コンプリートおめでとうございます</p>
+          <Confetti />
           <div className="w-[300px] h-[200px] flex flex-col items-center justify-center">
             <Image src={"/images/selectLevel/level1_badge.png"} width={100} height={100} alt="scroll" className="object-fit  mb-2"></Image>
             <p>バッジを入手しました</p>
           </div>
         </Popup>
       }
-      { havingItem == "greenPointer" &&
+      {havingItem == "greenPointer" &&
         <MouseHighlight />
       }
-      <ProbHeader level={level}/>
+      <ProbHeader level={level} />
       <div>
-        {!isLoading && <Prob1_1 clearLampList={clearLampList}/>}
-        {!isLoading && <Prob1_2 clearLampList={clearLampList}/>}
-        {!isLoading && <Prob1_3 clearLampList={clearLampList}/>}
-        {!isLoading && <Prob1_4 clearLampList={clearLampList}/>}
-        {!isLoading && <Prob1_5 clearLampList={clearLampList}/>}
+        {!isLoading && <Prob1_1 clearLampList={clearLampList} />}
+        {!isLoading && <Prob1_2 clearLampList={clearLampList} />}
+        {!isLoading && <Prob1_3 clearLampList={clearLampList} />}
+        {!isLoading && <Prob1_4 clearLampList={clearLampList} />}
+        {!isLoading && <Prob1_5 clearLampList={clearLampList} />}
       </div>
-      {!isLoading && <ClearLamp clearLampList={clearLampList}/>}
+      {!isLoading && <ClearLamp clearLampList={clearLampList} />}
       <Belongings />
       <Chatbot />
       <ProbFooter />
