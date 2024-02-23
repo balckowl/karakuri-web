@@ -12,12 +12,12 @@ export const metadata: Metadata = {
     title: "karakuri-web",
     description: "謎解き×webの新感覚脱出ゲーム",
     url: `${process.env.NEXT_PUBLIC_URL}`,
-    siteName: "SSGブログ",
+    siteName: "karakuri-web",
     images: [
       {
         width: "1200",
         height: "630",
-        url:  `${process.env.NEXT_PUBLIC_URL}/ogps/karakuri-web_ogp.png`
+        url:  `${process.env.NEXT_PUBLIC_URL}/images/ogps/karakuri-web_ogp.png`
       }
     ],
     locale: "jp",
