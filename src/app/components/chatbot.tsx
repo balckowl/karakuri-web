@@ -32,7 +32,7 @@ const Chatbot = () => {
 
     e.preventDefault()
 
-    if(!message){
+    if (!message) {
       return null;
     }
 
@@ -41,11 +41,17 @@ const Chatbot = () => {
     setMessage('')
     setIsLoading(true)
 
-    const res = await axios.post('http://localhost:3000/api/messages', {
-      message: message
+    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/messages`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ message: message })
     })
 
-    setMessages((prevMessages) => [...prevMessages, { text: res.data.data, user: "alagin" }])
+    const data = await res.json()
+
+    setMessages((prevMessages) => [...prevMessages, { text: data.data, user: "alagin" }])
     setIsLoading(false)
   }
 
@@ -53,7 +59,7 @@ const Chatbot = () => {
     <div>
       <Popover>
         <PopoverTrigger className="fixed w-[60px] h-[60px] bg-white right-10 bottom-8 rounded-[13px] border border-black items-center">
-          <FontAwesomeIcon icon={faMessage} className="text-[30px] mt-1 text-black"/>
+          <FontAwesomeIcon icon={faMessage} className="text-[30px] mt-1 text-black" />
         </PopoverTrigger>
         <PopoverContent key="popover-content" className="w-[500px] h-[500px]" align={"end"}>
           <div className="flex flex-col justify-between h-full">
