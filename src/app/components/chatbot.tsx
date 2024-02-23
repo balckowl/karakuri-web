@@ -65,7 +65,7 @@ const Chatbot = () => {
                       <div className="flex gap-3">
                         {message.user === "alagin" &&
                           <Avatar>
-                            <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+                            <AvatarImage src="/images/icon/ai.png" alt="@shadcn" />
                             <AvatarFallback>CN</AvatarFallback>
                           </Avatar>
                         }

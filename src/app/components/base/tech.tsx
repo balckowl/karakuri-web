@@ -44,9 +44,9 @@ const Tech = () => {
             <li>
               <p className="mb-2 lg:text-[18px]">・その他ツール</p>
               <div className="flex gap-4 mb-8">
-                <Image src={"/images/top/figma.png"} alt="next" width={48} height={60} className="object-cover" />
-                <Image src={"/images/top/git.png"} alt="next" width={64} height={60} className="object-cover" />
-                <Image src={"/images/top/github.png"} alt="next" width={67} height={60} className="object-cover" />
+                <Image src={"/images/top/figma.png"} alt="next" width={40} height={40} className="w-[45px] h-[60px] object-cover" />
+                <Image src={"/images/top/git.png"} alt="next" width={60} height={60} className="w-[60px] h-[60px] object-cover" />
+                <Image src={"/images/top/github.png"} alt="next" width={50} height={50} className="w-[60px] h-[60px] object-cover" />
               </div>
             </li>
           </ul>
