@@ -11,7 +11,7 @@ const Belongings = () => {
         <div 
           key={index}
           onClick={() => {belonging==havingItem ? setHavingItem(""): setHavingItem(belonging)}}
-          className={`w-[50px] h-[50px] border-black border-2 flex justify-center items-center bg-white ${belonging==havingItem && havingItem !== "" && "bg-green-200"} select-none`}
+          className={`w-[50px] h-[50px] border-black border-2 flex justify-center items-center ${belonging==havingItem && havingItem !== "" ? "bg-green-200" :"bg-white"} select-none`}
         >
           {
           belonging=="scrollBar" ? <Image src="/images/level1/scroll.jpg" width={100} height={100} alt="scrollBar" className="w-[40px] h-[12px] object-fit"></Image>
