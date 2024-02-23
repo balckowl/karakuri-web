@@ -13,7 +13,6 @@ const Prob1_4 = ({ clearLampList }: { clearLampList: any }) => {
 
   const handleClickCard = (index: number) => {
     const newIsSelectCardList = [...isSelectCardList];
-    let tour1st;
     if (isSelectCardList[index]) {
       addNowNumber(-cardNumberList[index])
     } else {

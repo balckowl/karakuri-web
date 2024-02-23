@@ -8,7 +8,7 @@ import Popup from "../Popup";
 const Prob1_5 = ({ clearLampList }: { clearLampList: any }) => {
 
   const [isGetGreenPoiner, setIsGetGreenPoiner] = useState<boolean>(false);
-  const { getBelonging, havingItem, setClearLampAtIndex, darkMode } = useGameStore();
+  const { getBelonging, darkMode } = useGameStore();
 
   function deepCopy2DArray(arr: any) {
     return arr.map(function(subArray: any) {

@@ -30,25 +30,11 @@ const Level1 = () => {
   const { havingItem } = useGameStore();
 
   const getUserData = async () => {
-
     setIsLoading(true)
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/user`)
-
     const userData = await res.json()
-
     setUserData(userData)
     setClearLampList(userData.clearLampList)
-    // setBadges(userData.badges)
-
-    // let zeroCount = 0
-
-    // Object.values(userData.clearLampList).forEach(array => {
-
-    //   zeroCount += array.filter(item => item === "1").length;
-    // });
-
-    // setClearCount(zeroCount)
     setIsLoading(false)
   }
 

@@ -1,6 +1,4 @@
-import { Button } from "@/app/components/ui/button"
-import Link from "next/link"
-import { parseISO, format } from 'date-fns'
+import { format } from 'date-fns'
 
 const getNewsData = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/news`, {
@@ -34,11 +32,6 @@ const News = async() => {
           </div>
         ))}
 
-        {/* <div className="flex justify-end">
-          <Button className="bg-white border-black border-[1px] text-black hover:text-white w-max p-6 lg:p-8">
-            <Link href="/auth/login">始めよう</Link>
-          </Button>
-        </div> */}
       </div>
     </div>
   )

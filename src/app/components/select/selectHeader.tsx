@@ -41,10 +41,10 @@ const SelectHeader = ({ pathname = "/" }: { pathname?: string }) => {
                 <p className="text-white">{session?.user.name}</p>
               </div>
             </HoverCardTrigger>
-            <HoverCardContent>
+            <HoverCardContent className=" bg-gray-900 border-[#020102]">
               <ul>
-                <li className="p-2">
-                  <div onClick={() => logOut()} className="w-full cursor-pointer">Logout</div>
+                <li className="p-2 ">
+                  <div onClick={() => logOut()} className="w-full cursor-pointer text-white hover:opacity-80 transition-all">ログアウト</div>
                 </li>
               </ul>
             </HoverCardContent>
