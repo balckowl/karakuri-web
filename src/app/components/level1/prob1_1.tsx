@@ -50,7 +50,7 @@ const Prob1_1 = ({ clearLampList }: { clearLampList: any }) => {
       <div className="flex mx-auto container max-w-[1000px] justify-between flex-col h-[50vh] items-center lg:flex-ro">
         <div>
           <div className="w-[600px] mx-auto h-[100px] flex items-end outline outline-2">
-            <Image src={darkMode ? "/images/level1/Hello_up_dark.png" : "/images/level1/Hello_up.png"} alt="up" width={600} height={200} className="select-none" />
+            <Image src={darkMode ? "/images/level1/HELLO_up_dark.png" : "/images/level1/HELLO_up.png"} alt="up" width={600} height={200} className="select-none" />
           </div>
           {/* ギミック */}
           <div
@@ -58,7 +58,7 @@ const Prob1_1 = ({ clearLampList }: { clearLampList: any }) => {
             className={`relative w-[600px] mx-auto h-[100px] ${isFitScrollBar && "overflow-x-scroll"} overflow-hidden outline outline-2`}
           >
             <div className="w-[600px] ml-[65px]">
-              <Image src={darkMode ? "/images/level1/Hello_down_dark.png" : "/images/level1/Hello_down.png"} alt="down" width={600} height={200} className="select-none" />
+              <Image src={darkMode ? "/images/level1/HELLO_down_dark.png" : "/images/level1/HELLO_down.png"} alt="down" width={600} height={200} className="select-none" />
             </div>
             {!isFitScrollBar &&
               <div className="absolute bottom-0 w-[600px] h-[14px] outline outline-"></div>

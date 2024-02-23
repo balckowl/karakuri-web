@@ -171,7 +171,7 @@ const Prob1_5 = ({ clearLampList }: { clearLampList: any }) => {
       <Popup isOpen={isPopupOpen} onClose={handleClosePopup}>
         <p>アイテムを入手しました</p>
         <div className="w-[300px] h-[200px] flex flex-col items-center justify-center">
-          <Image src={"/images/level1/GreenPointer.png"} width={100} height={100} alt="greenPointer" className="mb-2"></Image>
+          <Image src={"/images/level1/greenPointer.png"} width={100} height={100} alt="greenPointer" className="mb-2"></Image>
           <p>レーザーポインター(緑色)</p>
         </div>
       </Popup>

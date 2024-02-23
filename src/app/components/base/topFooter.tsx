@@ -27,8 +27,8 @@ const TopFooter = () => {
             </div>
 
             <div className="flex gap-4">
-              <a href="#" className="hover:opacity-80 transition-all"><Image src={"/images/twitter.png"} alt="twitter" width={30} height={30} className="rounded-[10px]" /></a>
-              <a href="#" className="hover:opacity-80 transition-all"><Image src={"/images/bluesky.png"} alt="bluesky" width={30} height={30} className="rounded-[10px]" /></a>
+              <a href="#" className="hover:opacity-80 transition-all"><Image src={"/images/top/twitter.png"} alt="twitter" width={30} height={30} className="rounded-[10px]" /></a>
+              <a href="#" className="hover:opacity-80 transition-all"><Image src={"/images/top/bluesky.png"} alt="bluesky" width={30} height={30} className="rounded-[10px]" /></a>
             </div>
           </div>
 
@@ -49,7 +49,7 @@ const TopFooter = () => {
             </div>
 
             <div className="flex gap-4">
-              <a href="#" className="hover:opacity-80 transition-all"><Image src={"/images/twitter.png"} alt="twitter" width={30} height={30} className="rounded-[10px]" /></a>
+              <a href="#" className="hover:opacity-80 transition-all"><Image src={"/images/top/twitter.png"} alt="twitter" width={30} height={30} className="rounded-[10px]" /></a>
             </div>
           </div>
         </div>

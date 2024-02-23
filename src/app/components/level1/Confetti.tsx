@@ -39,7 +39,7 @@ const Confetti = () => {
   const numberOfPieces = 200; 
 
   for (let i = 0; i < numberOfPieces; i++) {
-   
+  
     const x = Math.random() * window.innerWidth - window.innerWidth / 2;
     const y = Math.random() * window.innerHeight - window.innerHeight / 2;
     const rotate = Math.random() * 360;
