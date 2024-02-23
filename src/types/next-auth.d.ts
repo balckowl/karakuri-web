@@ -1,4 +1,4 @@
-import NextAuth　from 'next-auth';
+import NextAuth from 'next-auth';
 import { JWT } from 'next-auth/jwt';
 
 // Session型の拡張

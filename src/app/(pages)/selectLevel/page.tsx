@@ -3,11 +3,10 @@
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
-  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
+
 import Link from "next/link"
 import Image from "next/image"
 import SelectHeader from "@/app/components/select/selectHeader"
@@ -81,14 +80,13 @@ const SelectLevel = () => {
   }
 
   // クリア判定
-  const isCleared = (index: number) => {
+  const isCleared = (index: number, num:number) => {
     if(index < 0){
       return true
     }
     const sum = clearLampList[`level${index + 1}`].reduce((acc:number, current:string) => acc + parseInt(current), 0);
-    const isSumGreaterThanOrEqualTo3 = sum >= 3;
     
-    if (isSumGreaterThanOrEqualTo3) {
+    if (sum >= num) {
       return true
     } else {
       return false
@@ -130,16 +128,26 @@ const SelectLevel = () => {
                       transition={{ type: "spring", stiffness: 150, damping: 15, mass: 1 }}
                     >
                       <Link href={`/level${index + 1}`}
-                        className={`${isCleared(index-1) ? "hover:opacity-80 transition-all" : "cursor-not-allowed"}`}
-                        onClick={(e) => {isCleared(index-1) || e.preventDefault()}}
+                        className={`${isCleared(index-1,3) ? "hover:opacity-80 transition-all" : "cursor-not-allowed"}`}
+                        onClick={(e) => {isCleared(index-1,3) || e.preventDefault()}}
                       >
                         <div className="absolute top-[-296px] h-[270px] bg-[#ececdc] w-max translate-x-[calc(-50%+22px)] p-6 rounded-lg">
                           {/* 鍵 */}
-                          { isCleared(index-1) === false &&
+                          { !isCleared(index-1,3) && (
                             <div className="absolute w-[96%] h-[96%] bg-black top-[2%] left-[2%] rounded-lg z-[2000] opacity-80 flex justify-center items-center">
                               <Image src="/images/selectLevel/closed.svg" width={100} height={100} alt="closed"></Image>
                             </div>
-                          }
+                          )}
+                          {/* クリアマーク */}
+                          { isCleared(index,5) ?  (
+                            <div className="absolute w-[96%] h-[96%] top-[2%] left-[2%] rounded-lg z-[2000] flex justify-center items-center rotate-[-10deg]">
+                              <Image src="/images/prob/clear_stamp.png" width={200} height={200} alt="closed "></Image>
+                            </div>
+                          ) : isCleared(index,3) && (
+                            <div className="absolute w-[96%] h-[96%] top-[2%] left-[2%] rounded-lg z-[2000] flex justify-center items-center rotate-[-10deg]">
+                              <Image src="/images/prob/clear_stamp_yellow.png" width={200} height={200} alt="closed "></Image>
+                            </div>
+                          )}
 
                           <div>
                             <p className="mb-2">レベル{index+1} : {stageName[index]}</p>
@@ -147,7 +155,7 @@ const SelectLevel = () => {
                             <div className="flex gap-2 mb-2">
                               {!isLoading && clearLampList[`level${index + 1}`].map((clearLamps: string, jndex: number) => (
                                 <div key={jndex}>
-                                  <div className={`w-[20px] h-[20px] bg-red border-[#615734] border-[1px] rounded-[50%] ${!isLoading && clearLampList[`level${index + 1}`][jndex] === "1" && "bg-red-500"}`}></div>
+                                  <div className={`w-[20px] h-[20px] bg-red border-[#615734] border-[1px] rounded-[50%] ${!isLoading && clearLampList[`level${index + 1}`][jndex] === "1" && "bg-gradient-to-br from-red-400 via-red-600 to-red-800 bg-opacity-90 filter brightness-80"}`}></div>
                                 </div>
                               ))}
                             </div>

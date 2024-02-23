@@ -1,7 +1,6 @@
 import Image from "next/image"
 import { ReactNode } from "react"
 
-
 const Nameplate = ({ children, currentBadge }: { children: ReactNode, currentBadge: number }) => {
   return (
     <div className="absolute">

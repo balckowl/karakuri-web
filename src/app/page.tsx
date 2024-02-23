@@ -8,7 +8,6 @@ import TopFooter from "./components/base/topFooter"
 import { authOptions } from "@/lib/next-auth/options"
 import { getServerSession } from "next-auth"
 import { redirect } from "next/navigation"
-import { Suspense } from "react"
 
 const Home = async () => {
 
@@ -29,7 +28,6 @@ const Home = async () => {
       </div>
       <div className="max-w-[1200px] mx-auto">
         <About />
-        {/* @ts-expect-error Server Component */}
         <News />
         <Tech />
       </div>

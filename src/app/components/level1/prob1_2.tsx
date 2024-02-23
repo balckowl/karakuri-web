@@ -1,5 +1,4 @@
 "use client"
-import axios from "axios";
 import { FormEvent, useState } from "react"
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { useGameStore } from "@/app/stores/GameStore";
@@ -45,6 +44,7 @@ const Prob1_2 = ({ clearLampList }: { clearLampList: any }) => {
 
   return (
     <div className="bg-[#FFF7F1] dark:bg-[#190a25] h-[86vh] relative">
+      <Toaster />
       <div className="mx-auto container h-full flex items-center">
 
         {/* TODO Next.jsでReact-responsiveは使えないので、使わないで書く */}

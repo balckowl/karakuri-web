@@ -1,13 +1,13 @@
 "use client"
-import React from "react";
+import { useEffect, useRef } from "react";
 import Typed from "typed.js";
 import "./base.css"
 
 function CatchCopy() {
   // Create reference to store the DOM element containing the animation
-  const el = React.useRef(null);
+  const el = useRef(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const typed = new Typed(el.current, {
       strings: ["ようこそ、からくり館へ"],
       typeSpeed: 60,
