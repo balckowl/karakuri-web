@@ -63,7 +63,7 @@ const Prob1_4 = ({ clearLampList }: { clearLampList: any }) => {
             <div>
               <p className="text-center text-xl">目標値</p>
               <div className="w-[70px] h-[100px] bg-[#fff7f1] border-black border-2 flex items-center justify-around">
-                <p className="text-3xl font-bold text-red-500">20</p>
+                <p className="text-3xl font-bold text-green-500">20</p>
               </div>
             </div>
           </div>
@@ -79,7 +79,7 @@ const Prob1_4 = ({ clearLampList }: { clearLampList: any }) => {
             ))
             }
           </div>
-          <p className="text-3xl text-center">数字を選択して、それらの合計を <span className="font-bold text-red-500 dark:text-[#ff7d88]">20</span> にしてください。</p>
+          <p className="text-3xl text-center">数字を選択して、それらの合計を <span className="font-bold text-green-500 dark:text-[#ff7d88]">20</span> にしてください。</p>
           <p className="text-xl text-center">(選択できるのは黒っぽい数字)</p>
         </div>
       </div>
