@@ -1,6 +1,6 @@
 # karakuri-web
 
-karakuri-webは、サポーターズ主催のマンスリーハッカソンvol.15(2023年2月)にて作成したサイトです。<br />
+karakuri-webは、サポーターズ主催のマンスリーハッカソンvol.15(2024年2月)にて作成したサイトです。<br />
 
 - **フロントエンド, デザイン**: [@kusira](https://github.com/kusira) 
 - **バックエンド, プロジェクトリーダー**: [@y_ta](https://github.com/balckowl)
