@@ -27,7 +27,7 @@ karakuri-webは、レスポンシブやダークモード、404ページなど�
 ## 技術スタック 🚀
 
 - **フロントエンド**: Next.js, TS, Tailwind, Shadcn, Framer-Motion, Zustand
-- **バックエンド**: Next.js(API Routes), TS, Gemini, LangChain< FireStore
+- **バックエンド**: Next.js(API Routes), TS, Gemini, LangChain, Firestore
 - **認証**: Firebase Auth, Next Auth
 - **インフラ**: Vercel
 
