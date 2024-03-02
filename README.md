@@ -2,7 +2,7 @@
 
 karakuri-webは、サポーターズ主催のマンスリーハッカソンvol.15(2023年2月)にて作成したサイトです。<br />
 
-- **フロントエンド**: [@kusira](https://github.com/kusira) 
+- **フロントエンド, デザイン**: [@kusira](https://github.com/kusira) 
 - **バックエンド, プロジェクトリーダー**: [@y_ta](https://github.com/balckowl)
 
 初めての開発メンバーであり、完成まで至れるかは不安でしたが、なんとか形にすることができ、最優秀賞までいただけました🏆
