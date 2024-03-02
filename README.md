@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# karakuri-web
 
-## Getting Started
+[@y_ta](https://github.com/balckowl)、[@kusira](https://github.com/kusira)
 
-First, run the development server:
+## 作品概要 📦
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## スライドリンク🔗
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[スライドはこちら](https://www.canva.com/design/DAF9A8UiOfM/yj9SBVo5jypc9VheGvDcsw/view?utm_content=DAF9A8UiOfM&utm_campaign=designshare&utm_medium=link&utm_source=editor)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## デモ動画 🎥
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **謎解き動画**
 
-## Learn More
+[謎解き動画](https://github.com/balckowl/karakuri_web/assets/129815120/fa558765-490a-4fc0-a6bd-41b944ba3663)
 
-To learn more about Next.js, take a look at the following resources:
+- **他のギミック**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+[他のギミック](https://github.com/balckowl/karakuri_web/assets/129815120/dbd79195-3006-444b-8427-6c6c94f61d4d)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 技術スタック 🚀
 
-## Deploy on Vercel
+- **フロントエンド**: Next.js, TS, Tailwind, Shadcn, Framer-Motion, Zustand
+- **バックエンド**: Next.js(API Routes), TS, Gemini, LangChain< FireStore
+- **認証**: Firebase Auth, Next Auth
+- **インフラ**: Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 今後の展望 🔭
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- ログイン方法の多様化
+- 新ステージの実装
+- バッチやバナーの追加
+- より型安全な開発への移行
+
+
+
+
