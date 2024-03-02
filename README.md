@@ -1,8 +1,14 @@
 # karakuri-web
 
-[@y_ta](https://github.com/balckowl)、[@kusira](https://github.com/kusira)
+karakuri-webは、サポーターズ主催のマンスリーハッカソンvol.15(2023年2月)にて作成したサイトです。<br />
+
+- **フロントエンド**: [@kusira](https://github.com/kusira) 
+- **バックエンド, プロジェクトリーダー**: [@y_ta](https://github.com/balckowl)
+
+初めての開発メンバーであり、完成まで至れるかは不安でしたが、なんとか形にすることができ、最優秀賞までいただけました🏆
 
 ## 作品概要 📦
+karakuri-webは、レスポンシブやダークモード、404ページなどのwebサイトの仕組みをギミックとした新感覚謎解きゲームサイトです。webエンジニアの方であれば気付ける謎かもしれませんが、そうでない方は少し難しいかも🥺
 
 ## スライドリンク🔗
 
